@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B9WZ4DBWK8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B9WZ4DBWK8');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — うさぎさん商会 / 太田 博三</title>
+<meta name="description" content="うさぎさん商会ブログ。自然言語処理・生成AI・AGI・Claude Code によるアプリケーション開発など、学びと実装の記録。">
+<link rel="canonical" href="https://blog.usagisan2020.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog — うさぎさん商会 / 太田 博三">
+<meta property="og:description" content="自然言語処理・生成AI・AGI・Claude Code。学びと実装の記録。">
+<meta property="og:url" content="https://blog.usagisan2020.com/">
+
+<!-- ============ Analytics: 測定ID（本サイトと共有） ============ -->
+<script>
+  window.GA_MEASUREMENT_ID = 'G-B9WZ4DBWK8';
+</script>
+
+<style>
+  /* ===== design tokens: 本サイト（usagisan2020.com）と共通 ===== */
+  :root{
+    --bg:#ffffff;
+    --surface:#f4f4f2;
+    --surface-2:#ececea;
+    --text:#0d0d0d;
+    --muted:#6f6f6b;
+    --line:#e7e7e3;
+    --accent:#1f43ff;
+    --accent-ink:#ffffff;
+    --sans:"Helvetica Neue",Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",Meiryo,system-ui,sans-serif;
+    --serif:"Iowan Old Style",Palatino,Georgia,"Hiragino Mincho ProN","Yu Mincho",serif;
+    --max:1180px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c0c0d; --surface:#161617; --surface-2:#1f1f21;
+      --text:#f2f2ef; --muted:#9a9a95; --line:#26262a;
+      --accent:#6a83ff; --accent-ink:#0c0c0d;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
+    font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    letter-spacing:.005em;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+  a{color:inherit;}
+
+  /* ---------- nav ---------- */
+  nav.bar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb,var(--bg) 82%,transparent);
+    backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar-inner{max-width:var(--max);margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand{font-weight:700;font-size:1.02rem;letter-spacing:-0.01em;text-decoration:none;color:var(--text);white-space:nowrap;}
+  .brand .dot{color:var(--accent);}
+  .nav-links{display:flex;align-items:center;gap:26px;}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a.current{color:var(--text);font-weight:700;}
+  .nav-cta{
+    text-decoration:none;font-size:.85rem;font-weight:600;color:var(--accent-ink);
+    background:var(--accent);border-radius:999px;padding:9px 18px;white-space:nowrap;
+    border:none;cursor:pointer;font-family:var(--sans);transition:opacity .2s,transform .2s;
+    display:inline-block;
+  }
+  .nav-cta:hover{opacity:.9;transform:translateY(-1px);}
+  @media (max-width:720px){ .nav-links a:not(.nav-cta){display:none;} }
+
+  /* ---------- hero ---------- */
+  header.hero{padding:96px 0 56px;}
+  .crumb{font-size:.8rem;color:var(--muted);letter-spacing:.04em;margin:0 0 34px;}
+  .crumb a{text-decoration:none;transition:color .2s;}
+  .crumb a:hover{color:var(--text);}
+  .crumb b{color:var(--text);font-weight:600;}
+  .kicker{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 22px;}
+  h1{font-weight:700;font-size:clamp(2.9rem,8.5vw,5.6rem);line-height:.98;letter-spacing:-0.03em;margin:0 0 10px;}
+  .name-ja{font-size:clamp(1.1rem,3.2vw,1.5rem);color:var(--muted);font-weight:500;margin:0 0 30px;letter-spacing:.02em;}
+  .lede{font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.6;max-width:56ch;font-weight:500;letter-spacing:-0.01em;margin:0 0 34px;}
+  .lede strong{color:var(--text);}
+  .meta{display:flex;flex-wrap:wrap;gap:12px 30px;font-size:.9rem;color:var(--muted);}
+  .meta span{display:inline-flex;align-items:center;gap:8px;}
+  .meta .k{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;}
+
+  /* ---------- section frame ---------- */
+  section{padding:72px 0;border-top:1px solid var(--line);}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;}
+  .sec-label{font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 12px;}
+  h2{font-weight:700;font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:-0.02em;line-height:1.05;margin:0;}
+  .sec-sub{color:var(--muted);font-size:1rem;max-width:46ch;margin:14px 0 0;}
+
+  /* ---------- featured ---------- */
+  .featured{
+    display:grid;grid-template-columns:1.05fr 1fr;
+    border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface);
+    text-decoration:none;color:var(--text);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  .featured:hover{transform:translateY(-5px);box-shadow:0 26px 50px -28px rgba(0,0,0,.45);border-color:var(--text);}
+  @media (max-width:820px){ .featured{grid-template-columns:1fr;} }
+  .featured-cover{
+    position:relative;min-height:290px;padding:28px;
+    display:flex;flex-direction:column;justify-content:flex-end;gap:8px;
+  }
+  .featured-cover .t-mark{position:absolute;top:22px;right:24px;font-family:var(--serif);font-size:1.2rem;font-weight:600;opacity:.55;}
+  .featured-cover .t-kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;opacity:.85;}
+  .featured-cover .t-title{font-size:1.65rem;font-weight:700;line-height:1.25;letter-spacing:-0.01em;}
+  .featured-body{padding:34px;display:flex;flex-direction:column;gap:14px;}
+  .featured-body h3{font-size:1.5rem;font-weight:700;line-height:1.35;letter-spacing:-0.02em;margin:0;}
+  .featured-body p{margin:0;color:var(--muted);font-size:1rem;}
+  .featured-body .arrow{color:var(--accent);}
+  .pill{
+    align-self:flex-start;font-size:.7rem;font-weight:700;letter-spacing:.1em;
+    color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent);
+    border-radius:999px;padding:3px 11px;
+  }
+
+  /* ---------- controls: filters + search ---------- */
+  .controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px;}
+  .filters{display:flex;flex-wrap:wrap;gap:10px;}
+  .filter{
+    font-family:var(--sans);font-size:.86rem;font-weight:600;color:var(--muted);
+    background:transparent;border:1px solid var(--line);border-radius:999px;
+    padding:9px 18px;cursor:pointer;transition:all .18s ease;letter-spacing:.01em;
+  }
+  .filter:hover{color:var(--text);border-color:var(--text);}
+  .filter.active{color:var(--accent-ink);background:var(--text);border-color:var(--text);}
+  .search{
+    font-family:var(--sans);font-size:.92rem;color:var(--text);background:var(--surface);
+    border:1px solid var(--line);border-radius:999px;padding:10px 18px;min-width:250px;
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 20%,transparent);}
+
+  /* ---------- post grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:30px;}
+  .card{
+    display:flex;flex-direction:column;text-decoration:none;color:var(--text);
+    border-radius:16px;overflow:hidden;background:var(--surface);
+    border:1px solid var(--line);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  a.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px -24px rgba(0,0,0,.4);border-color:var(--text);}
+  .thumb{
+    position:relative;aspect-ratio:16/9;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:22px;gap:6px;
+  }
+  .thumb .t-kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;opacity:.85;}
+  .thumb .t-title{font-size:1.15rem;font-weight:700;line-height:1.25;letter-spacing:-0.01em;}
+  .thumb .t-mark{position:absolute;top:18px;right:20px;font-family:var(--serif);font-size:1.1rem;font-weight:600;opacity:.55;}
+  a.card:hover .thumb{filter:brightness(1.04);}
+
+  /* cover palettes (fixed, act like artwork) */
+  .t-indigo{background:linear-gradient(140deg,#2b2f7a,#4b53d6 70%,#6a72ff);color:#fff;}
+  .t-amber {background:linear-gradient(140deg,#f4d9a8,#e8b25f 70%,#d99632);color:#231a08;}
+  .t-teal  {background:linear-gradient(140deg,#0f5c58,#159c8f 70%,#3fcbb8);color:#fff;}
+  .t-rose  {background:linear-gradient(140deg,#f6c6d6,#ef98b6 70%,#e8748f);color:#2a0d17;}
+  .t-slate {background:linear-gradient(140deg,#2a2d33,#3d424c 70%,#565d69);color:#fff;}
+  .t-ink   {background:linear-gradient(140deg,#141416,#232327 70%,#33333a);color:#e9e9ec;}
+  .t-blue  {background:linear-gradient(140deg,#12327a,#1f52c9 70%,#3f7dff);color:#fff;}
+
+  .card-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:12px;flex:1;}
+  .card-cat{font-size:.78rem;letter-spacing:.05em;color:var(--muted);font-weight:600;text-transform:uppercase;display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+  .card-cat .sep{width:3px;height:3px;border-radius:50%;background:var(--muted);display:inline-block;flex:0 0 auto;}
+  .card-title{font-size:1.12rem;font-weight:700;line-height:1.35;letter-spacing:-0.01em;margin:0;}
+  .card-title .arrow{color:var(--accent);}
+  .card-desc{font-size:.92rem;color:var(--muted);margin:0;}
+  .card-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;}
+  .card-tags span{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 10px;}
+
+  .empty{color:var(--muted);padding:40px 0;font-size:1rem;}
+  .more-wrap{display:flex;justify-content:center;margin-top:44px;}
+  .more{
+    font-family:var(--sans);font-size:.92rem;font-weight:700;color:var(--text);
+    background:transparent;border:1px solid var(--line);border-radius:999px;
+    padding:13px 30px;cursor:pointer;transition:border-color .2s,transform .2s;
+  }
+  .more:hover{border-color:var(--text);transform:translateY(-1px);}
+
+  /* ---------- topics ---------- */
+  .tags{display:flex;flex-wrap:wrap;gap:9px;}
+  .tag{
+    font-family:var(--sans);font-size:.84rem;color:var(--text);border:1px solid var(--line);
+    border-radius:8px;padding:6px 13px;background:var(--surface);cursor:pointer;
+    transition:border-color .2s,color .2s;
+  }
+  .tag:hover{border-color:var(--accent);color:var(--accent);}
+  .tag .n{color:var(--muted);font-size:.78rem;margin-left:6px;}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;}
+  @media (max-width:820px){ .about-grid{grid-template-columns:1fr;gap:40px;} }
+  .about-grid p{margin:0 0 18px;color:var(--muted);font-size:1.05rem;}
+  .about-grid p strong{color:var(--text);font-weight:600;}
+  .about-grid a{color:var(--accent);text-decoration:none;font-weight:600;}
+  .about-grid a:hover{text-decoration:underline;}
+  .links{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+  .links a{text-decoration:none;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:3px;background:var(--surface);transition:border-color .2s,transform .2s;}
+  .links a:hover{border-color:var(--text);transform:translateY(-3px);}
+  .links .lk-t{font-weight:700;font-size:.98rem;}
+  .links .lk-s{font-size:.8rem;color:var(--muted);word-break:break-all;}
+
+  /* ---------- contact ---------- */
+  .usagi-logo{display:block;width:190px;max-width:64%;height:auto;margin:0 0 24px;border-radius:14px;background:#fff;padding:12px 16px;box-shadow:0 14px 34px -20px rgba(0,0,0,.45);}
+  .cta-head{font-weight:700;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-0.03em;line-height:1.02;margin:0 0 18px;max-width:16ch;}
+  .form-intro{color:var(--muted);max-width:52ch;font-size:1.05rem;}
+
+  /* ---------- story（ヒストリー本文） ---------- */
+  .story{max-width:70ch;}
+  .story .intro{
+    font-family:var(--serif);font-size:clamp(1.15rem,2.4vw,1.42rem);line-height:1.85;
+    margin:0 0 8px;letter-spacing:.01em;
+  }
+  .story .intro strong{font-weight:700;}
+  .chapter{padding:48px 0 0;}
+  .chapter + .chapter{border-top:1px solid var(--line);margin-top:48px;}
+  .ch-year{
+    display:flex;align-items:center;gap:14px;margin:0 0 10px;
+    font-size:.78rem;letter-spacing:.2em;font-weight:700;color:var(--muted);
+    font-variant-numeric:tabular-nums;
+  }
+  .ch-year .rule{flex:1;height:1px;background:var(--line);}
+  .ch-year .cnt{letter-spacing:.02em;color:var(--accent);}
+  .chapter h3{
+    font-size:clamp(1.35rem,3vw,1.95rem);font-weight:700;letter-spacing:-0.02em;
+    line-height:1.35;margin:0 0 20px;
+  }
+  .chapter p{
+    font-family:var(--serif);font-size:1.06rem;line-height:1.95;margin:0 0 20px;letter-spacing:.01em;
+  }
+  .chapter p strong{font-weight:700;}
+  .chapter .pull{
+    border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:26px 0;
+    font-family:var(--serif);font-size:1.12rem;line-height:1.75;color:var(--text);font-style:italic;
+  }
+  .ch-works{margin:26px 0 0;padding:0;list-style:none;border-top:1px solid var(--line);}
+  .ch-works li{border-bottom:1px solid var(--line);}
+  .ch-works a,.ch-works span.noline{
+    display:grid;grid-template-columns:62px 1fr;gap:14px;align-items:baseline;
+    padding:11px 2px;text-decoration:none;color:var(--text);
+    transition:background .18s,padding .18s;
+  }
+  .ch-works a:hover{background:var(--surface);padding-left:9px;}
+  .ch-works .d{font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:3px;}
+  .ch-works .t{font-size:.9rem;font-weight:600;line-height:1.5;}
+  .ch-works .t .venue{display:block;font-size:.76rem;color:var(--muted);font-weight:400;margin-top:2px;}
+  .ch-works-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:30px 0 0;}
+  .story-cta{
+    display:inline-flex;align-items:center;gap:10px;margin-top:44px;
+    text-decoration:none;border:1px solid var(--line);border-radius:999px;
+    padding:12px 22px;font-size:.9rem;font-weight:600;
+    transition:border-color .2s,transform .2s;
+  }
+  .story-cta:hover{border-color:var(--text);transform:translateY(-1px);}
+  @media (max-width:640px){
+    .ch-works a,.ch-works span.noline{grid-template-columns:48px 1fr;gap:10px;}
+  }
+
+  footer{padding:44px 0 64px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  footer a{color:var(--muted);text-decoration:none;}
+  footer a:hover{color:var(--text);}
+
+  @media (max-width:640px){
+    .wrap,.bar-inner{padding-left:24px;padding-right:24px;}
+    header.hero{padding:64px 0 44px;}
+    section{padding:56px 0;}
+    .grid{grid-template-columns:1fr;}
+    .search{width:100%;min-width:0;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="bar">
+  <div class="bar-inner">
+    <a class="brand" href="#top">Hiromitsu Ota<span class="dot">.</span>／うさぎさん商会</a>
+    <div class="nav-links">
+      <a href="#posts" class="current">Posts</a>
+      <a href="history.html">History</a>
+      <a href="#topics">Topics</a>
+      <a href="#about">About</a>
+      <a href="https://www.usagisan2020.com/" class="nav-cta">プロフィールへ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <header class="hero">
+    <p class="crumb"><a href="https://www.usagisan2020.com/">Home</a> <span style="opacity:.5">/</span> <b>Blog</b></p>
+    <p class="kicker">Notes on NLP · Generative AI · AGI</p>
+    <h1>Blog</h1>
+    <p class="name-ja">うさぎさん商会ブログ &nbsp;·&nbsp; 太田 博三</p>
+    <p class="lede">
+      2017年の<strong>文章自動生成</strong>から、日本語学習者の<strong>相互行為・対話破綻</strong>、
+      <strong>語用論と常識推論</strong>を経て、<strong>ChatGPT・画像生成・マルチエージェント</strong>、
+      そして<strong>FDE（伴走型エンジニアリング）</strong>へ。論文・登壇・共著を時系列で並べ直しました。
+    </p>
+    <div class="meta">
+      <span><span class="k"></span> <b id="post-count">0</b>&nbsp;posts</span>
+      <span><span class="k"></span> Tokyo, Japan</span>
+      <span><span class="k"></span> 最終更新 <span id="last-updated">—</span></span>
+    </div>
+  </header>
+
+  <!-- ============ STORY（history.html の文章版） ============ -->
+  <section id="story">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">The story</p>
+        <h2>ここまでの、話。</h2>
+      </div>
+      <p class="sec-sub">同じ問いが、9年かけて形を変えていった記録です。数字と図で見たい方は <a href="history.html" style="color:var(--accent);text-decoration:none;font-weight:600;">History ↗</a> へ。</p>
+    </div>
+
+    <article class="story" id="story-body"></article>
+  </section>
+
+  <!-- ============ FEATURED ============ -->
+  <section id="featured">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">Featured</p>
+        <h2>注目の記事</h2>
+      </div>
+    </div>
+    <div id="featured-slot"></div>
+  </section>
+
+  <!-- ============ POSTS ============ -->
+  <section id="posts">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">All posts</p>
+        <h2>記事一覧</h2>
+      </div>
+      <p class="sec-sub">カテゴリで絞り込み、キーワードで検索できます。</p>
+    </div>
+
+    <div class="controls">
+      <div class="filters" id="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="paper">論文・研究発表</button>
+        <button class="filter" data-filter="nlp">NLP</button>
+        <button class="filter" data-filter="genai">生成AI</button>
+        <button class="filter" data-filter="agi">AGI</button>
+        <button class="filter" data-filter="dev">開発</button>
+        <button class="filter" data-filter="book">執筆・出版</button>
+      </div>
+      <input type="search" class="search" id="search" placeholder="キーワードで検索（例: Claude Code）" aria-label="記事を検索">
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>該当する記事はありませんでした。条件を変えてお試しください。</p>
+    <div class="more-wrap" id="more-wrap" hidden>
+      <button class="more" id="more">もっと読む</button>
+    </div>
+  </section>
+
+  <!-- ============ TOPICS ============ -->
+  <section id="topics">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">Topics</p>
+        <h2>タグ</h2>
+      </div>
+      <p class="sec-sub">タグをクリックすると、その話題の記事だけを表示します。</p>
+    </div>
+    <div class="tags" id="tags"></div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">About</p>
+        <h2>このブログについて</h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>
+          データアナリスト／データサイエンティストとして分析・モデリングの現場に立ちながら、
+          研究者として<strong>自然言語処理・生成AI・セマンティックWeb／オントロジー</strong>、
+          そして脳型認知モデルにもとづく解釈可能で信頼できるAIエージェントを探究しています。
+        </p>
+        <p>
+          このブログは、その過程で読んだもの・作ったもの・つまずいたことの記録です。
+          きれいにまとまった結論よりも、<strong>手を動かして分かったこと</strong>を残すことを大切にしています。
+          プロフィール・研究業績は <a href="https://www.usagisan2020.com/">本サイト</a> をご覧ください。
+        </p>
+      </div>
+      <div class="links">
+        <a href="https://www.usagisan2020.com/"><span class="lk-t">Profile</span><span class="lk-s">usagisan2020.com</span></a>
+        <a href="https://github.com/otanet" target="_blank" rel="noopener"><span class="lk-t">GitHub</span><span class="lk-s">@otanet</span></a>
+        <a href="https://speakerdeck.com/otanet" target="_blank" rel="noopener"><span class="lk-t">Speaker Deck</span><span class="lk-s">登壇スライド</span></a>
+        <a href="https://x.com/usagisan2020" target="_blank" rel="noopener"><span class="lk-t">X (Twitter)</span><span class="lk-s">@usagisan2020</span></a>
+        <a href="https://researchmap.jp/otanet" target="_blank" rel="noopener"><span class="lk-t">researchmap</span><span class="lk-s">研究業績・経歴</span></a>
+        <a href="https://techbookfest.org/organization/otanet" target="_blank" rel="noopener"><span class="lk-t">技術書典</span><span class="lk-s">うさぎさん商会</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <img class="usagi-logo" src="https://www.usagisan2020.com/usagi-logo.png" alt="うさぎさん商会 ロゴ">
+    <p class="sec-label">Get in touch</p>
+    <h2 class="cta-head">記事のご感想・ご相談を。</h2>
+    <p class="form-intro">
+      取り上げてほしいテーマ、記事へのご指摘、登壇・執筆・データ分析のご依頼など、
+      お問い合わせフォームからお気軽にご連絡ください。無料の30分1on1もお受けしています。
+    </p>
+    <p style="margin-top:26px">
+      <a class="nav-cta" href="https://www.usagisan2020.com/#contact">お問い合わせフォームへ</a>
+    </p>
+  </section>
+
+  <!-- ============ LIKE ============ -->
+  <div data-like="index" data-like-label="ここまでの話、いかがでしたか？"></div>
+
+  <footer>
+    <span>© 2026 Hiromitsu Ota · 太田 博三 · うさぎさん商会</span>
+    <span><a href="https://www.usagisan2020.com/">usagisan2020.com ↗</a></span>
+  </footer>
+
+</div>
+
+<!-- 記事データ。history.html と共有しています -->
+<script src="posts.js"></script>
+
+<script>
+  var PAGE_SIZE = 6;
+  var state = { cat: 'all', q: '', shown: PAGE_SIZE };
+
+  var gridEl     = document.getElementById('grid');
+  var emptyEl    = document.getElementById('empty');
+  var moreWrapEl = document.getElementById('more-wrap');
+  var moreEl     = document.getElementById('more');
+  var searchEl   = document.getElementById('search');
+  var tagsEl     = document.getElementById('tags');
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+  function fmtDate(iso){ return iso.split('-').join('.'); }
+  function dispDate(p){ return p.dateLabel || fmtDate(p.date); }
+
+  var sorted = POSTS.slice().sort(function(a,b){ return a.date < b.date ? 1 : -1; });
+
+  document.getElementById('post-count').textContent = sorted.length;
+  if(sorted.length){ document.getElementById('last-updated').textContent = fmtDate(sorted[0].date); }
+
+  /* ---------- featured ---------- */
+  (function(){
+    var f = sorted.filter(function(p){ return p.featured; })[0] || sorted[0];
+    if(!f) return;
+    document.getElementById('featured-slot').innerHTML =
+      '<a class="featured" href="' + esc(f.url) + '" data-title="' + esc(f.title) + '">' +
+        '<div class="featured-cover ' + esc(f.cover) + '">' +
+          '<span class="t-mark">' + f.mark + '</span>' +
+          '<span class="t-kicker">' + esc(f.kicker) + '</span>' +
+          '<span class="t-title">' + esc(f.coverTitle) + '</span>' +
+        '</div>' +
+        '<div class="featured-body">' +
+          '<span class="pill">Featured</span>' +
+          '<span class="card-cat">' + dispDate(f) + '<span class="sep"></span>' + esc(f.catLabel) + '</span>' +
+          '<h3>' + esc(f.title) + ' <span class="arrow">↗</span></h3>' +
+          '<p>' + esc(f.excerpt) + '</p>' +
+          '<div class="card-tags">' + f.tags.map(function(t){ return '<span>' + esc(t) + '</span>'; }).join('') + '</div>' +
+        '</div>' +
+      '</a>';
+  })();
+
+  /* ---------- tag cloud ---------- */
+  (function(){
+    var counts = {};
+    sorted.forEach(function(p){ p.tags.forEach(function(t){ counts[t] = (counts[t] || 0) + 1; }); });
+    tagsEl.innerHTML = Object.keys(counts)
+      .sort(function(a,b){ return counts[b] - counts[a]; })
+      .map(function(t){
+        return '<button class="tag" data-tag="' + esc(t) + '">' + esc(t) + '<span class="n">' + counts[t] + '</span></button>';
+      }).join('');
+  })();
+
+  /* ---------- list ---------- */
+  function matches(p){
+    if(state.cat !== 'all' && p.cat !== state.cat) return false;
+    if(!state.q) return true;
+    var hay = (p.title + ' ' + p.excerpt + ' ' + p.catLabel + ' ' + p.tags.join(' ')).toLowerCase();
+    return hay.indexOf(state.q) !== -1;
+  }
+
+  function cardHTML(p){
+    return '<a class="card" href="' + esc(p.url) + '" data-title="' + esc(p.title) + '">' +
+      '<div class="thumb ' + esc(p.cover) + '">' +
+        '<span class="t-mark">' + p.mark + '</span>' +
+        '<span class="t-kicker">' + esc(p.kicker) + '</span>' +
+        '<span class="t-title">' + esc(p.coverTitle) + '</span>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<span class="card-cat">' + dispDate(p) + '<span class="sep"></span>' + esc(p.catLabel) + '</span>' +
+        '<h3 class="card-title">' + esc(p.title) + ' <span class="arrow">↗</span></h3>' +
+        '<p class="card-desc">' + esc(p.excerpt) + '</p>' +
+        '<div class="card-tags">' + p.tags.map(function(t){ return '<span>' + esc(t) + '</span>'; }).join('') + '</div>' +
+      '</div>' +
+    '</a>';
+  }
+
+  function render(){
+    var list = sorted.filter(matches);
+    gridEl.innerHTML = list.slice(0, state.shown).map(cardHTML).join('');
+    emptyEl.hidden = list.length !== 0;
+    moreWrapEl.hidden = list.length <= state.shown;
+  }
+
+  /* ---------- events ---------- */
+  document.querySelectorAll('.filter').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.filter').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      state.cat = btn.getAttribute('data-filter');
+      state.shown = PAGE_SIZE;
+      track('blog_filter', { filter: state.cat });
+      render();
+    });
+  });
+
+  searchEl.addEventListener('input', function(){
+    state.q = searchEl.value.trim().toLowerCase();
+    state.shown = PAGE_SIZE;
+    render();
+  });
+  searchEl.addEventListener('change', function(){
+    if(state.q){ track('blog_search', { query: state.q.slice(0,60) }); }
+  });
+
+  moreEl.addEventListener('click', function(){
+    state.shown += PAGE_SIZE;
+    track('blog_load_more', { shown: state.shown });
+    render();
+  });
+
+  tagsEl.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.tag') : null;
+    if(!b) return;
+    var tag = b.getAttribute('data-tag');
+    document.querySelectorAll('.filter').forEach(function(x){ x.classList.remove('active'); });
+    document.querySelector('.filter[data-filter="all"]').classList.add('active');
+    state.cat = 'all';
+    state.q = tag.toLowerCase();
+    state.shown = PAGE_SIZE;
+    searchEl.value = tag;
+    track('blog_tag_click', { tag: tag });
+    render();
+    document.getElementById('posts').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  render();
+
+  /* ---- analytics: 本サイトと同じイベントヘルパー ---- */
+  function track(name, params){
+    try{
+      var id = window.GA_MEASUREMENT_ID || '';
+      if(typeof window.gtag === 'function' && id && id.indexOf('G-XXXX') !== 0){
+        window.gtag('event', name, params || {});
+      }
+      if(window.console && console.debug){ console.debug('[track]', name, params || {}); }
+    }catch(e){}
+  }
+
+  /* 記事クリック / 外部リンククリック */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if(!a) return;
+    var href = a.getAttribute('href') || '';
+    var title = a.getAttribute('data-title');
+    if(title){ track('post_click', { post_title: title, link_url: href }); return; }
+    if(/^https?:/i.test(href)){
+      track('outbound_click', {
+        link_url: href,
+        link_text: (a.textContent || '').replace(/\s+/g,' ').trim().slice(0,90),
+        link_domain: (href.split('/')[2] || '')
+      });
+    }
+  }, true);
+
+  /* セクション表示 */
+  try{
+    var seenSection = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting && en.target.id && !seenSection[en.target.id]){
+          seenSection[en.target.id] = true;
+          track('section_view', { section_id: en.target.id });
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('section[id]').forEach(function(s){ io.observe(s); });
+  }catch(e){}
+
+  /* スクロール深度 25/50/75/100 */
+  (function(){
+    var marks = [25,50,75,100], fired = {};
+    window.addEventListener('scroll', function(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      if(max <= 0) return;
+      var pct = (h.scrollTop / max) * 100;
+      marks.forEach(function(m){ if(pct >= m && !fired[m]){ fired[m] = true; track('scroll_depth', { percent: m }); } });
+    }, { passive: true });
+  })();
+</script>
+
+<!-- ============ STORY: history.html の文章版 ============ -->
+<script>
+(function(){
+  /* 章の本文。本数と記事リンクは POSTS から自動算出するので、
+     ここには「文章」だけを書きます。※ 変数名 top / name / status は
+     window の組み込みプロパティと衝突するため使わないこと。 */
+  var INTRO =
+    'はじまりは、たった一行の課題でした。<strong>「文と文が、つながらない」</strong>。' +
+    '2017年、ビッグデータと深層学習の波が自然言語処理にも届いたころ、私はそれを手元で確かめようとして、' +
+    'つまずきました。以来9年、この一行がずっと私の仕事の芯にあります。' +
+    '文をつなぐ話は、やがて会話をつなぐ話になり、意味をつなぐ話になり、いまは人と技術をつなぐ話になりました。' +
+    'その道のりを、順を追って書きます。';
+
+  var CHAPTERS = [
+    {
+      from:2017, to:2017,
+      title:'「文と文が、つながらない」',
+      body:[
+        'マルコフ連鎖、自動要約、RNN と LSTM、そして GAN。当時できる手法をひととおり並べて、文章を自動で書かせてみました。単語の選び方は、驚くほどそれらしくなります。一文だけを取り出せば、人が書いたものと見分けがつかないことさえある。ところが二文、三文と続けた瞬間に、文章はばらばらにほどけてしまう。',
+        '手法を替えても、データを増やしても、この綻びだけは残りました。精度の問題ではなく、<strong>つながりを支えているものが、そもそもモデルの中に無い</strong>のではないか。そう考えるようになったのが、この年です。',
+        '同じ年、Julia でデータサイエンスをゼロから組み立てる本を編訳しました。ライブラリに乗る前に、自分の手で組み立ててみる。この癖は、いまも変わっていません。'
+      ],
+      pull:'一文は書ける。文章が書けない。'
+    },
+    {
+      from:2018, to:2018,
+      title:'会話の細部へ — 隣接ペア、あいづち、対話破綻',
+      body:[
+        'つながらないのは、文ではなく<strong>会話</strong>なのではないか。問いを立て直して、日本語学習者の会話データベースへ降りていきました。',
+        '会話を支えているのは、意味の通った立派な文ではありませんでした。問いかけには答えが返るという<strong>隣接ペア</strong>の型。笑い、フィラー、あいづち。それ自体は情報をほとんど運ばない、細かな部品たちです。ところがこれらが欠けた瞬間、会話は<strong>破綻</strong>する。人は、内容が正しいかどうかより先に、この型が守られているかどうかで相手を判断していました。',
+        'この年の記録はすべて、その細部を数え、対話破綻の検出につなげようとした試みです。文の中を見ていた目が、文と文の<em>あいだ</em>に移った年でした。'
+      ],
+      pull:'会話をつないでいたのは、意味ではなく型だった。'
+    },
+    {
+      from:2019, to:2019,
+      title:'なぜ、その言い方を選ぶのか — 語用論とポライトネス',
+      body:[
+        '細部を追ううちに、次の疑問が出てきます。同じことを伝えるのに、なぜ人はわざわざ回りくどい言い方を選ぶのか。',
+        '答えは言語学の側にありました。<strong>語用論</strong>、とりわけポライトネスの理論です。人は相手との関係を壊さないために、言い方を選んでいる。だとすれば対話システムにも、その配慮が要る。ポライトネスと配慮表現のコーパスを作り、対人関係を織り込んだ対話の設計へ橋を架けました。',
+        '「何を言うか」から<strong>「なぜ、その言い方を選ぶのか」</strong>へ。問いの軸が、この年に移りました。'
+      ]
+    },
+    {
+      from:2020, to:2022,
+      title:'言葉の外側にあるもの — 常識推論、含意と推意',
+      body:[
+        '語用論の先で待っていたのは、<strong>常識</strong>でした。「明日は雨らしい」と言われて傘を持つ。この飛躍を支えているのは文中のどこにも書かれていない知識です。書かれていないものを、どうやってモデルに渡すのか。',
+        '関連性理論とポライトネスを手がかりに、会話をローカルな文脈へ落とし込み、含意（entailment）と推意（implicature）の関係を論理の側から捉え直しました。同時に、移民政策・日本語教育・法という<strong>言語の外側の文脈</strong>からも知識の獲得に接近しています。言葉の意味は、言葉の中だけでは閉じていませんでした。',
+        'この時期、ウェブ解析士の公式テキスト（第12版）にも参加しています。データを読む前に、何を計測しているのかを揃える。研究とは別の場所で、同じことを考えていました。'
+      ],
+      pull:'書かれていないことを、どうやって渡すのか。'
+    },
+    {
+      from:2023, to:2023,
+      title:'生成AIが来た — ChatGPT と、その周辺',
+      body:[
+        'ChatGPT が出て、道具立てが一変しました。6年前に「つながらない」と書いた文章生成は、気づけば人が読んで違和感のない水準に届いていました。',
+        'まず自分の手で確かめました。LangChain で芥川龍之介『蜘蛛の糸』を要約させ、Wikipedia のあらすじと並べて、<strong>何が落ちるのか</strong>を見る。要約は上手い。けれど落ちるものには、はっきりと偏りがありました。あわせて、著作権とガイドラインをめぐる国際的な議論も追っています。',
+        '論文から登壇・実装へ、発信の重心が動きはじめたのもこの年です。'
+      ]
+    },
+    {
+      from:2024, to:2024,
+      title:'モーダルを越える — 画像生成、エージェント、そして脳へ',
+      body:[
+        'もっとも密度の高い年になりました。川端康成『雪国』の冒頭を題材に、日本語話者の<strong>主観的把握</strong>と英語話者の<strong>客観的把握</strong>の差を、画像生成で目に見える形にしています。同じ一文から、言語によって違う絵が出てくる。認知のモードの違いが、そのまま像の違いとして現れました。',
+        'Text-to-Image と Image-to-Music の変換が一貫しているかを、ジャンル表とオントロジーで測る試みも進めました。AutoGen ではエージェント同士に協調的な対話をさせています。7年前に会話の型を数えていた仕事が、ここでエージェントの設計として戻ってきました。',
+        'そして『人工知能』誌の共著で、解釈可能で信頼できるエージェントを<strong>脳型認知モデル</strong>から論じました。言語の内側を掘り続けた先が、モーダルと脳の側へ抜けた年です。'
+      ],
+      pull:'同じ一文から、言語によって違う絵が出てくる。'
+    },
+    {
+      from:2025, to:2026,
+      title:'つなぐ仕事へ — FDE',
+      body:[
+        '『雪国』の問いを新年のLTでもう一度引き直しつつ、いまの到達点は <strong>FDE（伴走型エンジニアリング）</strong>です。',
+        'お客様の中には、言葉にならないまま抱えられている知があります。それを引き出し、形にし、また現場へ返す。SECI モデルを手がかりに、<strong>暗黙知と明示知</strong>の往復として捉え直しました。技術の問題に見えて、実のところこれは、相手の言っていないことをどう受け取るかという問題です。',
+        '9年前に立てた「文と文をつなぐ」という問いは、ここで<strong>「人と技術をつなぐ」</strong>に姿を変えました。同じことを、ずっとやっているのだと思います。'
+      ],
+      pull:'結局のところ、ずっと同じことをやっている。'
+    }
+  ];
+
+  var host = document.getElementById('story-body');
+  if (!host || typeof POSTS === 'undefined') return;
+
+  var byDate = POSTS.slice().sort(function(a, b){ return new Date(b.date) - new Date(a.date); });
+
+  var html = '<p class="intro">' + INTRO + '</p>';
+
+  html += CHAPTERS.map(function(ch){
+    var items = byDate.filter(function(p){
+      var y = parseInt(p.date.slice(0, 4), 10);
+      return y >= ch.from && y <= ch.to;
+    });
+    var span = ch.from === ch.to ? String(ch.from) : ch.from + ' — ' + ch.to;
+
+    var paras = ch.body.map(function(t){ return '<p>' + t + '</p>'; }).join('');
+    var pull  = ch.pull ? '<blockquote class="pull">' + ch.pull + '</blockquote>' : '';
+
+    var works = items.map(function(p){
+      var inner =
+        '<span class="d">' + esc(dispDate(p)) + '</span>' +
+        '<span class="t">' + esc(p.title) +
+          '<span class="venue">' + esc(p.catLabel) + '</span>' +
+        '</span>';
+      return '<li>' + ((p.url && p.url !== '#')
+        ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + inner + '</a>'
+        : '<span class="noline">' + inner + '</span>') + '</li>';
+    }).join('');
+
+    var list = items.length
+      ? '<p class="ch-works-label">この時期の記録 — ' + items.length + '本</p>' +
+        '<ul class="ch-works">' + works + '</ul>'
+      : '';
+
+    return '<section class="chapter">' +
+      '<p class="ch-year"><span>' + span + '</span><span class="rule"></span>' +
+        '<span class="cnt">' + items.length + ' 本</span></p>' +
+      '<h3>' + esc(ch.title) + '</h3>' +
+      paras + pull + list +
+    '</section>';
+  }).join('');
+
+  html += '<a class="story-cta" href="history.html">数字と図で見る → History</a>';
+
+  host.innerHTML = html;
+})();
+</script>
+
+<!-- いいねボタン。history.html と共有しています -->
+<script src="like.js"></script>
+
+</body>
+</html>
