@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B9WZ4DBWK8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B9WZ4DBWK8');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiromitsu Ota — 太田 博三</title>
+<meta name="description" content="Hiromitsu Ota (太田 博三) — Data Scientist / Researcher. Natural Language Processing, Generative AI, AGI, Semantic Web.">
+
+<!-- ============ Analytics: 測定ID（サイト内カスタムイベントで共有） ============ -->
+<script>
+  window.GA_MEASUREMENT_ID = 'G-B9WZ4DBWK8';
+</script>
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f4f4f2;
+    --surface-2:#ececea;
+    --text:#0d0d0d;
+    --muted:#6f6f6b;
+    --line:#e7e7e3;
+    --accent:#1f43ff;
+    --accent-ink:#ffffff;
+    --sans:"Helvetica Neue",Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",Meiryo,system-ui,sans-serif;
+    --serif:"Iowan Old Style",Palatino,Georgia,"Hiragino Mincho ProN","Yu Mincho",serif;
+    --max:1180px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c0c0d; --surface:#161617; --surface-2:#1f1f21;
+      --text:#f2f2ef; --muted:#9a9a95; --line:#26262a;
+      --accent:#6a83ff; --accent-ink:#0c0c0d;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
+    font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    letter-spacing:.005em;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;}
+  a{color:inherit;}
+
+  /* ---------- nav ---------- */
+  nav.bar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb,var(--bg) 82%,transparent);
+    backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar-inner{max-width:var(--max);margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand{font-weight:700;font-size:1.02rem;letter-spacing:-0.01em;text-decoration:none;color:var(--text);white-space:nowrap;}
+  .brand .dot{color:var(--accent);}
+  .nav-links{display:flex;align-items:center;gap:26px;}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    text-decoration:none;font-size:.85rem;font-weight:600;color:var(--accent-ink);
+    background:var(--accent);border-radius:999px;padding:9px 18px;white-space:nowrap;
+    border:none;cursor:pointer;font-family:var(--sans);transition:opacity .2s,transform .2s;
+  }
+  .nav-cta:hover{opacity:.9;transform:translateY(-1px);}
+  @media (max-width:720px){ .nav-links a:not(.nav-cta){display:none;} }
+
+  /* ---------- hero ---------- */
+  header.hero{padding:110px 0 72px;}
+  .hero-inner{display:flex;align-items:center;gap:56px;justify-content:space-between;}
+  .hero-text{flex:1;min-width:0;}
+  .hero-portrait{flex:0 0 auto;}
+  .hero-portrait img{width:300px;height:300px;max-width:34vw;object-fit:cover;border-radius:22px;border:1px solid var(--line);box-shadow:0 34px 64px -34px rgba(0,0,0,.45);display:block;}
+  @media (max-width:820px){
+    .hero-inner{flex-direction:column-reverse;align-items:flex-start;gap:28px;}
+    .hero-portrait img{width:180px;height:180px;max-width:52vw;border-radius:18px;}
+  }
+  .crumb{font-size:.8rem;color:var(--muted);letter-spacing:.04em;margin:0 0 34px;}
+  .crumb b{color:var(--text);font-weight:600;}
+  .kicker{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 22px;}
+  h1{font-weight:700;font-size:clamp(2.9rem,8.5vw,5.6rem);line-height:.98;letter-spacing:-0.03em;margin:0 0 10px;}
+  .name-ja{font-size:clamp(1.1rem,3.2vw,1.5rem);color:var(--muted);font-weight:500;margin:0 0 34px;letter-spacing:.02em;}
+  .lede{font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.55;max-width:24ch;font-weight:500;letter-spacing:-0.01em;margin:0 0 40px;}
+  .lede{max-width:52ch;}
+  .lede strong{color:var(--text);}
+  .meta{display:flex;flex-wrap:wrap;gap:12px 30px;font-size:.9rem;color:var(--muted);}
+  .meta span{display:inline-flex;align-items:center;gap:8px;}
+  .meta .k{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;}
+
+  /* ---------- section frame ---------- */
+  section{padding:72px 0;border-top:1px solid var(--line);}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;}
+  .sec-label{font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 12px;}
+  h2{font-weight:700;font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:-0.02em;line-height:1.05;margin:0;}
+  .sec-sub{color:var(--muted);font-size:1rem;max-width:46ch;margin:14px 0 0;}
+
+  /* ---------- filter tabs ---------- */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;}
+  .filter{
+    font-family:var(--sans);font-size:.86rem;font-weight:600;color:var(--muted);
+    background:transparent;border:1px solid var(--line);border-radius:999px;
+    padding:9px 18px;cursor:pointer;transition:all .18s ease;letter-spacing:.01em;
+  }
+  .filter:hover{color:var(--text);border-color:var(--text);}
+  .filter.active{color:var(--accent-ink);background:var(--text);border-color:var(--text);}
+
+  /* ---------- work grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:30px;}
+  .card{
+    display:flex;flex-direction:column;text-decoration:none;color:var(--text);
+    border-radius:16px;overflow:hidden;background:var(--surface);
+    border:1px solid var(--line);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  a.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px -24px rgba(0,0,0,.4);border-color:var(--text);}
+  .card--wide{grid-column:span 2;}
+  @media (max-width:760px){ .card--wide{grid-column:span 1;} }
+
+  .thumb{
+    position:relative;aspect-ratio:16/9;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:22px;gap:6px;
+  }
+  .thumb .t-kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;opacity:.85;}
+  .thumb .t-title{font-size:1.15rem;font-weight:700;line-height:1.25;letter-spacing:-0.01em;}
+  .thumb .t-mark{position:absolute;top:18px;right:20px;font-family:var(--serif);font-size:1.1rem;font-weight:600;opacity:.55;}
+  a.card:hover .thumb{filter:brightness(1.04);}
+
+  /* cover palettes (fixed, act like artwork) */
+  .t-indigo{background:linear-gradient(140deg,#2b2f7a,#4b53d6 70%,#6a72ff);color:#fff;}
+  .t-amber {background:linear-gradient(140deg,#f4d9a8,#e8b25f 70%,#d99632);color:#231a08;}
+  .t-teal  {background:linear-gradient(140deg,#0f5c58,#159c8f 70%,#3fcbb8);color:#fff;}
+  .t-rose  {background:linear-gradient(140deg,#f6c6d6,#ef98b6 70%,#e8748f);color:#2a0d17;}
+  .t-slate {background:linear-gradient(140deg,#2a2d33,#3d424c 70%,#565d69);color:#fff;}
+  .t-ink   {background:linear-gradient(140deg,#141416,#232327 70%,#33333a);color:#e9e9ec;}
+  .t-blue  {background:linear-gradient(140deg,#12327a,#1f52c9 70%,#3f7dff);color:#fff;}
+
+  .thumb--yt{padding:0;background:#000;}
+  .thumb--yt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .25s,transform .35s;}
+  a.card:hover .thumb--yt img{opacity:1;transform:scale(1.04);}
+  .yt-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:40px;border-radius:11px;background:rgba(0,0,0,.72);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s;}
+  a.card:hover .yt-badge{background:#ff0000;}
+  .thumb--video{padding:0;background:#000;}
+  .thumb--video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .yt-facade{position:absolute;inset:0;width:100%;height:100%;padding:0;margin:0;border:0;background:#000;cursor:pointer;display:block;}
+  .yt-facade img{width:100%;height:100%;object-fit:cover;display:block;opacity:.82;transition:opacity .2s;}
+  .yt-facade:hover img{opacity:1;}
+  .yt-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:52px;border-radius:14px;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;transition:background .2s;}
+  .yt-facade:hover .yt-play{background:#ff0000;}
+  .yt-play::after{content:"";border-style:solid;border-width:11px 0 11px 19px;border-color:transparent transparent transparent #fff;margin-left:4px;}
+  .yt-link{font-size:.82rem;color:var(--accent);text-decoration:none;font-weight:600;margin-top:4px;}
+  .yt-link:hover{text-decoration:underline;}
+
+  .card-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:12px;flex:1;}
+  .card-cat{font-size:.78rem;letter-spacing:.05em;color:var(--muted);font-weight:600;text-transform:uppercase;}
+  .card-title{font-size:1.12rem;font-weight:700;line-height:1.35;letter-spacing:-0.01em;margin:0;}
+  .card-title .arrow{color:var(--accent);}
+  .card-desc{font-size:.92rem;color:var(--muted);margin:0;}
+  .card-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;}
+  .card-tags span{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 10px;}
+
+  /* ---------- about / experience ---------- */
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;}
+  @media (max-width:820px){ .about-grid{grid-template-columns:1fr;gap:40px;} }
+  .about-grid p{margin:0 0 18px;color:var(--muted);font-size:1.05rem;}
+  .about-grid p strong{color:var(--text);font-weight:600;}
+  .exp .row{display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .exp .row:first-child{border-top:1px solid var(--line);}
+  .exp .role{font-weight:700;color:var(--text);}
+  .exp .desc{color:var(--muted);font-size:.9rem;margin-top:2px;}
+  .exp .yr{font-weight:700;color:var(--accent);white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums;}
+  .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px;}
+  .tag{font-size:.84rem;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 13px;background:var(--surface);}
+
+  /* ---------- links row ---------- */
+  .links{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+  .links a{text-decoration:none;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:3px;background:var(--surface);transition:border-color .2s,transform .2s;}
+  .links a:hover{border-color:var(--text);transform:translateY(-3px);}
+  .links .lk-t{font-weight:700;font-size:.98rem;}
+  .links .lk-s{font-size:.8rem;color:var(--muted);word-break:break-all;}
+
+  /* ---------- certification ---------- */
+  .cert-list{display:flex;flex-direction:column;gap:22px;}
+  .cert-group{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:14px 0 -6px;display:flex;align-items:center;gap:12px;}
+  .cert-group::after{content:"";flex:1;height:1px;background:var(--line);}
+  .cert-group:first-child{margin-top:0;}
+  .cert-badge--wip{background:linear-gradient(140deg,#7a4d12,#c9861f 70%,#f0b64a)!important;box-shadow:0 14px 32px -16px rgba(201,134,31,.75)!important;}
+  .cert-card{display:flex;gap:34px;align-items:flex-start;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:34px;}
+  @media (max-width:720px){ .cert-card{flex-direction:column;gap:24px;padding:24px;} }
+  .cert-badge{flex:0 0 auto;width:130px;height:130px;border-radius:16px;background:linear-gradient(140deg,#12327a,#1f52c9 70%,#3f7dff);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:0 14px 32px -16px rgba(31,82,201,.75);}
+  .cert-badge-k{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;opacity:.92;}
+  .cert-badge-y{font-family:var(--serif);font-size:2rem;font-weight:600;line-height:1;}
+  .cert-main{flex:1;min-width:0;}
+  .cert-issuer{font-size:.82rem;color:var(--muted);font-weight:600;margin:0 0 6px;}
+  .cert-title{font-size:1.42rem;font-weight:700;letter-spacing:-0.01em;margin:0 0 6px;}
+  .cert-period{font-size:.9rem;color:var(--muted);margin:0 0 20px;}
+  .cert-learned-h{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text);font-weight:700;margin:0 0 9px;}
+  .cert-learned ul{margin:0 0 24px;padding-left:18px;color:var(--muted);}
+  .cert-learned li{margin:0 0 5px;}
+  .cert-actions{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;}
+  .cert-dl{display:inline-block;font-family:var(--sans);font-size:.9rem;font-weight:700;color:var(--accent-ink);background:var(--accent);border:none;border-radius:999px;padding:12px 24px;cursor:pointer;text-decoration:none;transition:opacity .2s,transform .2s;}
+  .cert-dl:hover{opacity:.9;transform:translateY(-1px);}
+  .cert-link{font-size:.88rem;font-weight:600;color:var(--accent);text-decoration:none;}
+  .cert-link:hover{text-decoration:underline;}
+
+  /* ---------- contact / CTA ---------- */
+  .usagi-logo{display:block;width:190px;max-width:64%;height:auto;margin:0 0 24px;border-radius:14px;background:#fff;padding:12px 16px;box-shadow:0 14px 34px -20px rgba(0,0,0,.45);}
+  .cta-head{font-weight:700;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-0.03em;line-height:1.02;margin:0 0 18px;max-width:16ch;}
+  .form-intro{color:var(--muted);max-width:52ch;font-size:1.05rem;}
+  .or-sep{display:flex;align-items:center;gap:16px;margin:40px 0 0;max-width:680px;color:var(--muted);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;}
+  .or-sep::before,.or-sep::after{content:"";flex:1;height:1px;background:var(--line);}
+  .book-box{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 24px;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:22px 26px;margin:22px 0 6px;max-width:680px;}
+  .book-text{min-width:0;}
+  .book-badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent);border-radius:999px;padding:3px 11px;margin-bottom:9px;}
+  .book-text h3{font-size:1.16rem;font-weight:700;margin:0 0 4px;letter-spacing:-0.01em;}
+  .book-text p{font-size:.9rem;color:var(--muted);margin:0;}
+  .book-btn{flex:0 0 auto;font-family:var(--sans);font-size:.95rem;font-weight:700;color:var(--accent-ink);background:var(--accent);border:none;border-radius:999px;padding:13px 26px;cursor:pointer;text-decoration:none;transition:opacity .2s,transform .2s;}
+  .book-btn:hover{opacity:.9;transform:translateY(-1px);}
+  form.contact{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:680px;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field.full{grid-column:1 / -1;}
+  @media (max-width:600px){ form.contact{grid-template-columns:1fr;} }
+  .field label{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  .field input,.field textarea{font-family:var(--sans);font-size:1rem;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:13px 15px;width:100%;resize:vertical;transition:border-color .2s,box-shadow .2s;}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 20%,transparent);}
+  .field textarea{min-height:150px;line-height:1.6;}
+  .submit{grid-column:1 / -1;justify-self:start;font-family:var(--sans);font-size:.95rem;font-weight:700;letter-spacing:.02em;color:var(--accent-ink);background:var(--accent);border:none;border-radius:999px;padding:14px 32px;cursor:pointer;transition:opacity .2s,transform .2s;}
+  .submit:hover{opacity:.9;transform:translateY(-1px);}
+  .send-actions{grid-column:1 / -1;display:flex;flex-direction:column;align-items:flex-start;gap:14px;}
+  .send-alt{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.86rem;color:var(--muted);}
+  .send-link{font-family:var(--sans);font-size:.86rem;font-weight:600;color:var(--accent);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 15px;cursor:pointer;transition:border-color .2s,color .2s;}
+  .send-link:hover{border-color:var(--accent);}
+  .form-note{grid-column:1 / -1;font-size:.82rem;color:var(--muted);}
+  .form-status{grid-column:1 / -1;font-size:.9rem;color:var(--accent);min-height:1.2em;font-weight:600;}
+
+  footer{padding:44px 0 64px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  footer a{color:var(--muted);text-decoration:none;}
+  footer a:hover{color:var(--text);}
+
+  @media (max-width:640px){
+    .wrap,.bar-inner{padding-left:24px;padding-right:24px;}
+    header.hero{padding:72px 0 52px;}
+    section{padding:56px 0;}
+    .grid{grid-template-columns:1fr;}
+  }
+
+  /* =======================================================
+     PRINT → clean one-page résumé
+     ======================================================= */
+  .print-only{display:none;}
+  @media print{
+    @page{margin:14mm 15mm;}
+    body{background:#fff;color:#111;font-size:10.3pt;line-height:1.42;}
+    .screen-only{display:none !important;}
+    .print-only{display:block;}
+    a{color:#111;text-decoration:none;}
+    .cv{color:#111;}
+    .cv-head{border-bottom:2px solid #111;padding-bottom:10px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:flex-start;gap:12mm;}
+    .cv-head-text{flex:1;min-width:0;}
+    .cv-photo{flex:0 0 auto;width:26mm;height:26mm;object-fit:cover;border-radius:3px;border:1px solid #bbb;}
+    .cv-head h1{font-family:var(--serif);font-size:22pt;margin:0 0 2px;line-height:1;letter-spacing:0;}
+    .cv-head .ja{font-family:var(--serif);font-size:11pt;color:#333;margin:0 0 6px;}
+    .cv-head .role{font-size:9.5pt;color:#333;letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px;}
+    .cv-head .contact{font-size:8.6pt;color:#333;display:flex;flex-wrap:wrap;gap:2px 14px;}
+    .cv h3{font-size:8.4pt;letter-spacing:.16em;text-transform:uppercase;color:#111;border-bottom:.75pt solid #999;padding-bottom:3px;margin:14px 0 8px;font-weight:700;}
+    .cv p{margin:0 0 7px;color:#222;}
+    .cv .xrow{display:flex;justify-content:space-between;gap:16px;margin:0 0 6px;}
+    .cv .xrow .l{font-weight:700;}
+    .cv .xrow .r{color:#444;white-space:nowrap;}
+    .cv ul{margin:0 0 7px;padding-left:15px;}
+    .cv ul li{margin:0 0 3px;color:#222;}
+    .cv .kwd{font-size:9.4pt;color:#222;}
+    .cv-foot{margin-top:14px;border-top:.75pt solid #999;padding-top:6px;font-size:7.6pt;color:#666;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= SCREEN ================= -->
+<div class="screen-only">
+
+  <nav class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="#top">Hiromitsu Ota<span class="dot">.</span>／うさぎさん商会</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#cert">Certification</a>
+        <a href="#contact">Contact</a>
+        <button class="nav-cta" onclick="track('resume_download',{source:'nav'});window.print()">Résumé (PDF)</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap" id="top">
+
+    <header class="hero">
+      <p class="crumb">Home <span style="opacity:.5">/</span> <b>Profile</b></p>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="kicker">Data Scientist · Researcher</p>
+          <h1>Hiromitsu Ota</h1>
+          <p class="name-ja">太田 博三 &nbsp;·&nbsp; おおた ひろみつ</p>
+          <p class="lede">
+            目の前の課題(データサイエンス・機械学習)を解決し、中長期的には、
+            自然言語処理と生成AIを軸に、<strong>汎用人工知能（AGI）</strong>と
+            <strong>人とAIの共生</strong>をデザインする。
+          </p>
+          <div class="meta">
+            <span><span class="k"></span> Tokyo, Japan</span>
+            <span><span class="k"></span> 全脳アーキテクチャ・イニシアティブ 共同研究員</span>
+            <span><span class="k"></span> 工学修士／博士課程満期退学修了</span>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <img src="Hiromitsu_Ota.JPG" alt="太田 博三 Hiromitsu Ota" width="320" height="320" loading="eager">
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ ABOUT (top) ============ -->
+    <section id="about">
+      <div class="sec-head">
+        <div>
+          <p class="sec-label">About</p>
+          <h2>自己紹介</h2>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>
+            インターネット業界でWeb解析・データマーケティングに携わったのち、
+            データアナリスト／データサイエンティストとして分析・モデリングの現場に立ってきました。
+            現在は研究者として、自然言語処理・生成AI・セマンティックWeb／オントロジー、
+            そして脳型認知モデルにもとづく<strong>解釈可能で信頼できるAIエージェント</strong>を探究しています。
+          </p>
+          <p>
+            実務で培った「データを意思決定につなげる感覚」と、
+            アカデミアで鍛えた「原理から問い直す姿勢」の両輪を大切にしています。
+            登壇・執筆・翻訳・OSSを通じて、学びを開いていくことも活動の中心です。
+          </p>
+          <p>
+            最新技術動向は、<strong>松尾研講座やプロジェクトにコミットメント</strong>しております。
+            ビジネス展開では、「システムソリューションズの新井さんや Miraichi の村岡大地さんのように、
+            新たな道を切り開きたい」と考えております。
+          </p>
+          <p>
+            2023年からは、AGI（汎用人工知能）の研究発表を行う<strong>全脳アーキテクチャ・イニシアティブ</strong>に参画し、
+            実行委員長を務めておりました。2025年からは足元を見直し、従来のデータサイエンス・機械学習に加え、
+            昨今の<strong>Claude Code によるアプリケーション開発</strong>に従事しています。
+            さらに、2021年に深層強化学習や世界モデルを受講・修了した知見を活かし、
+            <strong>Physical AI</strong> にも挑戦すべく松尾研講座を受講中です。
+          </p>
+          <div class="tags">
+            <span class="tag">自然言語処理</span>
+            <span class="tag">生成AI</span>
+            <span class="tag">AGI</span>
+            <span class="tag">セマンティックWeb・オントロジー</span>
+            <span class="tag">マルチモーダル基盤モデル</span>
+            <span class="tag">画像生成 (Stable Diffusion)</span>
+            <span class="tag">脳型認知モデル</span>
+            <span class="tag">マルチエージェント対話</span>
+            <span class="tag">人とAIの共生</span>
+            <span class="tag">データマーケティング</span>
+          </div>
+        </div>
+        <div class="exp">
+          <p class="sec-label" style="margin-bottom:18px">Experience</p>
+          <div class="row"><div><div class="role">インターネット業界</div><div class="desc">Web解析・データマーケティング</div></div><div class="yr">10年</div></div>
+          <div class="row"><div><div class="role">データアナリスト</div><div class="desc">分析設計・可視化・意思決定支援</div></div><div class="yr">4年</div></div>
+          <div class="row"><div><div class="role">データサイエンティスト</div><div class="desc">機械学習・自然言語処理・モデリング</div></div><div class="yr">6年</div></div>
+          <div class="row"><div><div class="role">共同研究員 — 全脳アーキテクチャ・イニシアティブ</div><div class="desc">AGI／脳型認知・人とAIの共生</div></div><div class="yr">2023 —</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section id="work">
+      <div class="sec-head">
+        <div>
+          <p class="sec-label">Selected Work</p>
+          <h2>これまでの仕事</h2>
+        </div>
+        <p class="sec-sub">研究・登壇・執筆・実装。テーマで絞り込めます。</p>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="video">Video</button>
+        <button class="filter" data-filter="talks">Talks</button>
+        <button class="filter" data-filter="writing">Writing</button>
+        <button class="filter" data-filter="code">Code</button>
+      </div>
+
+      <div class="grid" id="grid">
+
+        <!-- VIDEO -->
+        <a class="card" data-cat="video" href="https://www.youtube.com/watch?v=hjoy76dhTDU" target="_blank" rel="noopener">
+          <div class="thumb thumb--yt">
+            <img src="https://i.ytimg.com/vi/hjoy76dhTDU/hqdefault.jpg" alt="Pythonによる文章自動生成入門 PyCon JP 2017" loading="lazy">
+            <span class="yt-badge" aria-hidden="true">▶</span>
+          </div>
+          <div class="card-body">
+            <span class="card-cat">Video · PyCon JP 2017</span>
+            <h3 class="card-title">Pythonによる文章自動生成入門 <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>Python</span><span>NLP</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="video" href="https://www.youtube.com/watch?v=F8meHoTbOq4" target="_blank" rel="noopener">
+          <div class="thumb thumb--yt">
+            <img src="https://i.ytimg.com/vi/F8meHoTbOq4/hqdefault.jpg" alt="言語処理学会 NLP2022 ポスターLT" loading="lazy">
+            <span class="yt-badge" aria-hidden="true">▶</span>
+          </div>
+          <div class="card-body">
+            <span class="card-cat">Video · NLP2022</span>
+            <h3 class="card-title">言語処理学会 NLP2022 ポスターLT <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>NLP</span><span>Poster</span></div>
+          </div>
+        </a>
+
+        <!-- TALKS -->
+        <a class="card" data-cat="talks" href="https://speakerdeck.com/otanet" target="_blank" rel="noopener">
+          <div class="thumb t-slate"><span class="t-mark">01</span><span class="t-kicker">Talk</span><span class="t-title">FDEという解</span></div>
+          <div class="card-body">
+            <span class="card-cat">Talk · Slide</span>
+            <h3 class="card-title">暗黙知と明示知をつなぐ、伴走型エンジニアリング <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>FDE</span><span>Knowledge</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="talks" href="https://speakerdeck.com/otanet" target="_blank" rel="noopener">
+          <div class="thumb t-slate"><span class="t-mark">02</span><span class="t-kicker">Talk</span><span class="t-title">解釈可能性の考察</span></div>
+          <div class="card-body">
+            <span class="card-cat">Talk · Slide</span>
+            <h3 class="card-title">モーダル間の変換後の一致性とジャンル表による解釈 <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>Multimodal</span><span>XAI</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="video" href="https://www.youtube.com/watch?v=44N6rEXobjo" target="_blank" rel="noopener">
+          <div class="thumb thumb--yt">
+            <img src="https://i.ytimg.com/vi/44N6rEXobjo/hqdefault.jpg" alt="第34回 モーダル間の変換後の一致性とジャンル表を用いた解釈可能性の考察" loading="lazy">
+            <span class="yt-badge" aria-hidden="true">▶</span>
+          </div>
+          <div class="card-body">
+            <span class="card-cat">Video · 第34回</span>
+            <h3 class="card-title">解釈可能性の考察（Text-to-Music / Image-to-Music） <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>Multimodal</span><span>XAI</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="talks" href="https://speakerdeck.com/otanet" target="_blank" rel="noopener">
+          <div class="thumb t-slate"><span class="t-mark">03</span><span class="t-kicker">Talk</span><span class="t-title">AutoGen × Multi-Agent</span></div>
+          <div class="card-body">
+            <span class="card-cat">Talk · Slide</span>
+            <h3 class="card-title">AutoGenによるマルチエージェント対話 <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>Agent</span><span>LLM</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="talks" href="https://researchmap.jp/otanet/presentations" target="_blank" rel="noopener">
+          <div class="thumb t-blue"><span class="t-mark">04</span><span class="t-kicker">Organizer</span><span class="t-title">統合AIと人間の共生</span></div>
+          <div class="card-body">
+            <span class="card-cat">Talk · JSAI 2024</span>
+            <h3 class="card-title">人工知能学会 全国大会 OS オーガナイザ <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>AGI</span><span>Human-AI</span></div>
+          </div>
+        </a>
+
+        <!-- WRITING -->
+        <a class="card" data-cat="writing" href="https://researchmap.jp/otanet/published_papers" target="_blank" rel="noopener">
+          <div class="thumb t-indigo"><span class="t-mark">論</span><span class="t-kicker">Paper</span><span class="t-title">脳型認知モデル</span></div>
+          <div class="card-body">
+            <span class="card-cat">Writing · 人工知能 Vol.39</span>
+            <h3 class="card-title">解釈可能で信頼できるエージェント（共著） <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>共著</span><span>Cognitive</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="writing" href="https://github.com/otanet/books_julia_for_data_science_2017" target="_blank" rel="noopener">
+          <div class="thumb t-amber"><span class="t-mark">訳</span><span class="t-kicker">Book</span><span class="t-title">Juliaによる<br>データサイエンス</span></div>
+          <div class="card-body">
+            <span class="card-cat">Writing · Translation</span>
+            <h3 class="card-title">『Juliaによるデータサイエンス』翻訳 <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>Julia</span><span>翻訳</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="writing" href="https://researchmap.jp/otanet/books_etc" target="_blank" rel="noopener">
+          <div class="thumb t-teal"><span class="t-mark">著</span><span class="t-kicker">Textbook</span><span class="t-title">ウェブ解析士<br>公式テキスト</span></div>
+          <div class="card-body">
+            <span class="card-cat">Writing · 執筆協力</span>
+            <h3 class="card-title">ウェブ解析士 認定試験 公式テキスト <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>Analytics</span><span>執筆協力</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="writing" href="https://techbookfest.org/product/6534092814286848" target="_blank" rel="noopener">
+          <div class="thumb t-rose"><span class="t-mark">技</span><span class="t-kicker">Zine</span><span class="t-title">うさぎさん商会</span></div>
+          <div class="card-body">
+            <span class="card-cat">Writing · Techbookfest</span>
+            <h3 class="card-title">技術同人誌（うさぎさん商会） <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>技術書典</span><span>同人誌</span></div>
+          </div>
+        </a>
+
+        <!-- CODE -->
+        <a class="card" data-cat="code" href="https://github.com/otanet/NLP2022_anlp_annual_conference" target="_blank" rel="noopener">
+          <div class="thumb t-ink"><span class="t-mark">&lt;/&gt;</span><span class="t-kicker">GitHub</span><span class="t-title">NLP2022</span></div>
+          <div class="card-body">
+            <span class="card-cat">Code · Python</span>
+            <h3 class="card-title">言語処理学会 ポスター発表 資料 <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>NLP</span><span>Research</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="code" href="https://github.com/otanet/RLAS2021_chatbot_DeepRL_20220111" target="_blank" rel="noopener">
+          <div class="thumb t-ink"><span class="t-mark">&lt;/&gt;</span><span class="t-kicker">GitHub</span><span class="t-title">Chatbot × DeepRL</span></div>
+          <div class="card-body">
+            <span class="card-cat">Code · Python</span>
+            <h3 class="card-title">深層強化学習による対話生成 <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>RL</span><span>Dialogue</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="code" href="https://github.com/otanet/LangChain_Summarization_202304" target="_blank" rel="noopener">
+          <div class="thumb t-ink"><span class="t-mark">&lt;/&gt;</span><span class="t-kicker">GitHub</span><span class="t-title">LangChain</span></div>
+          <div class="card-body">
+            <span class="card-cat">Code · Python</span>
+            <h3 class="card-title">LLMによる文書要約（LangChain） <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>LLM</span><span>Summarize</span></div>
+          </div>
+        </a>
+
+        <a class="card" data-cat="code" href="https://github.com/otanet/RecSys" target="_blank" rel="noopener">
+          <div class="thumb t-ink"><span class="t-mark">&lt;/&gt;</span><span class="t-kicker">GitHub</span><span class="t-title">RecSys</span></div>
+          <div class="card-body">
+            <span class="card-cat">Code · Notebook</span>
+            <h3 class="card-title">代表的な推薦エンジンの実装デモ <span class="arrow">↗</span></h3>
+            <div class="card-tags"><span>RecSys</span><span>Demo</span></div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATION ============ -->
+    <section id="cert">
+      <div class="sec-head">
+        <div>
+          <p class="sec-label">Certification</p>
+          <h2>資格・修了</h2>
+        </div>
+        <p class="sec-sub">東京大学 松尾（・岩澤）研究室・株式会社松尾研究所の講座。受講中および修了。</p>
+      </div>
+      <div class="cert-list">
+
+        <p class="cert-group">受講中 · In progress</p>
+
+        <!-- In progress 1: GCI 2026 Summer -->
+        <div class="cert-card">
+          <div class="cert-badge cert-badge--wip" aria-hidden="true">
+            <span class="cert-badge-k">In&nbsp;progress</span>
+            <span class="cert-badge-y">2026</span>
+          </div>
+          <div class="cert-main">
+            <p class="cert-issuer">株式会社松尾研究所 · 社会人向けデータサイエンス講座</p>
+            <h3 class="cert-title">GCI グローバル消費インテリジェンス講座 2026 Summer</h3>
+            <p class="cert-period">2026年4月〜8月（全15回・毎週火曜・オンライン）／ 受講中</p>
+            <div class="cert-learned">
+              <p class="cert-learned-h">カリキュラム抜粋</p>
+              <ul>
+                <li>Python基礎・NumPy・Pandasによるデータ処理</li>
+                <li>Matplotlibによるデータ可視化</li>
+                <li>教師あり学習（回帰・分類）／特徴量エンジニアリング</li>
+                <li>時系列分析／教師なし学習（クラスタリング・主成分分析）</li>
+                <li>モデル検証・ハイパーパラメータチューニング</li>
+                <li>マーケティング分析・ビジネス活用提案・SQL／データベース</li>
+              </ul>
+            </div>
+            <div class="cert-actions">
+              <a class="cert-link" href="https://matsuo-institute.com/seminar/gci-2026s/" target="_blank" rel="noopener">講座 公式ページ ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- In progress 2: Physical AI 基礎編 -->
+        <div class="cert-card">
+          <div class="cert-badge cert-badge--wip" aria-hidden="true">
+            <span class="cert-badge-k">In&nbsp;progress</span>
+            <span class="cert-badge-y">2026</span>
+          </div>
+          <div class="cert-main">
+            <p class="cert-issuer">東京大学 松尾・岩澤研究室（松尾研）· 集中講義</p>
+            <h3 class="cert-title">Physical AI 基礎編</h3>
+            <p class="cert-period">2026年6月〜8月（全7回・毎週木曜・オンライン）／ 受講中</p>
+            <div class="cert-learned">
+              <p class="cert-learned-h">カリキュラム抜粋</p>
+              <ul>
+                <li>Physical AI の概要と活用</li>
+                <li>模倣学習（Imitation Learning）による学習</li>
+                <li>強化学習によるロコモーション習得</li>
+                <li>スケーリングとアーキテクチャ</li>
+                <li>実世界データ収集</li>
+                <li>実運用時の課題と展開（ロボット基盤モデル／LeRobot）</li>
+              </ul>
+            </div>
+            <div class="cert-actions">
+              <a class="cert-link" href="https://weblab.t.u-tokyo.ac.jp/lecture/course-list/physical-ai/" target="_blank" rel="noopener">講座 公式ページ ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="cert-group">修了 · Completed</p>
+
+        <!-- Cert 1: DLB2023 -->
+        <div class="cert-card">
+          <div class="cert-badge" aria-hidden="true">
+            <span class="cert-badge-k">Completed</span>
+            <span class="cert-badge-y">2023</span>
+          </div>
+          <div class="cert-main">
+            <p class="cert-issuer">松尾・岩澤研究室（東京大学） · 日本ディープラーニング協会 E資格認定講座</p>
+            <h3 class="cert-title">Deep Learning 基礎講座 2023（DLB2023）</h3>
+            <p class="cert-period">2023年4月〜7月（全13回・オンライン）／ E資格 認定プログラム</p>
+            <div class="cert-learned">
+              <p class="cert-learned-h">学んだこと</p>
+              <ul>
+                <li>機械学習・ニューラルネットワークの基礎、最適化と正則化</li>
+                <li>畳み込みニューラルネットワーク（CNN）／再帰型ニューラルネットワーク（RNN）と系列モデル</li>
+                <li>自然言語処理（NLP）・コンピュータビジョンへの応用</li>
+                <li>生成モデル（VAE・GAN 等）と深層生成</li>
+                <li>強化学習、表現学習・自己教師あり学習</li>
+                <li>深層学習の理論、世界モデル（World Models）</li>
+              </ul>
+            </div>
+            <div class="cert-actions">
+              <button class="cert-dl" onclick="downloadCertificate()">修了証をダウンロード (PDF)</button>
+              <a class="cert-link" href="https://github.com/otanet/DLB2023_matsuo-lab_202304-06" target="_blank" rel="noopener">GitHub（課題・成果物）↗</a>
+              <a class="cert-link" href="https://deeplearning.jp/lectures/dlb2023/" target="_blank" rel="noopener">講座 公式ページ ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cert 2: 画像認識 -->
+        <div class="cert-card">
+          <div class="cert-badge" aria-hidden="true">
+            <span class="cert-badge-k">Completed</span>
+            <span class="cert-badge-y">2021</span>
+          </div>
+          <div class="cert-main">
+            <p class="cert-issuer">松尾研究室（東京大学） · 集中講義</p>
+            <h3 class="cert-title">画像認識（Image Recognition）</h3>
+            <p class="cert-period">2021年 集中講義 ／ 深層学習による画像認識</p>
+            <div class="cert-learned">
+              <p class="cert-learned-h">学んだこと</p>
+              <ul>
+                <li>画像認識の基礎と畳み込みニューラルネットワーク（CNN）</li>
+                <li>画像分類（ImageNet 等）と代表的アーキテクチャ</li>
+                <li>物体検出（Object Detection）／セマンティックセグメンテーション</li>
+                <li>転移学習・データ拡張の実践</li>
+                <li>距離学習・自己教師あり学習</li>
+                <li>Vision Transformer など最新の画像認識手法</li>
+              </ul>
+            </div>
+            <div class="cert-actions">
+              <a class="cert-dl" href="https://github.com/otanet/image_recognition_2022/raw/main/%E4%BF%AE%E4%BA%86%E8%A8%BC_%E7%94%BB%E5%83%8F%E8%AA%8D%E8%AD%98_2021sp088000%20(1).pdf" target="_blank" rel="noopener" download>修了証をダウンロード (PDF)</a>
+              <a class="cert-link" href="https://github.com/otanet/image_recognition_2022" target="_blank" rel="noopener">GitHub（リポジトリ）↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cert 3: 深層強化学習 オータムセミナー2021 -->
+        <div class="cert-card">
+          <div class="cert-badge" aria-hidden="true">
+            <span class="cert-badge-k">Completed</span>
+            <span class="cert-badge-y">2021</span>
+          </div>
+          <div class="cert-main">
+            <p class="cert-issuer">松尾研究室（東京大学） · 集中講義（オータムセミナー2021）</p>
+            <h3 class="cert-title">深層強化学習（Deep Reinforcement Learning）</h3>
+            <p class="cert-period">2021年 オータムセミナー ／ 深層強化学習</p>
+            <div class="cert-learned">
+              <p class="cert-learned-h">学んだこと</p>
+              <ul>
+                <li>強化学習の基礎（MDP・価値関数・方策）</li>
+                <li>Q学習・DQN／Double DQN</li>
+                <li>方策勾配法・Actor-Critic</li>
+                <li>目的指向型対話（GO Chatbot）への深層強化学習の応用</li>
+                <li>対話状態追跡・ユーザーシミュレータの実装</li>
+                <li>エージェント学習の実装演習（train / agent）</li>
+              </ul>
+            </div>
+            <div class="cert-actions">
+              <a class="cert-dl" href="https://github.com/otanet/RLAS2021_chatbot_DeepRL_20220111/raw/main/%E4%BF%AE%E4%BA%86%E8%A8%BC_%E3%82%AA%E3%83%BC%E3%82%BF%E3%83%A0%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC2021_%E5%BC%B7%E5%8C%96%E5%AD%A6%E7%BF%92023000.pdf" target="_blank" rel="noopener" download>修了証をダウンロード (PDF)</a>
+              <a class="cert-link" href="https://github.com/otanet/RLAS2021_chatbot_DeepRL_20220111" target="_blank" rel="noopener">GitHub（リポジトリ）↗</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ LINKS ============ -->
+    <section id="elsewhere">
+      <div class="sec-head">
+        <div>
+          <p class="sec-label">Elsewhere</p>
+          <h2>リンク</h2>
+        </div>
+      </div>
+      <div class="links">
+        <a href="https://researchmap.jp/otanet" target="_blank" rel="noopener"><span class="lk-t">researchmap</span><span class="lk-s">研究業績・経歴</span></a>
+        <a href="https://github.com/otanet" target="_blank" rel="noopener"><span class="lk-t">GitHub</span><span class="lk-s">@otanet</span></a>
+        <a href="https://speakerdeck.com/otanet" target="_blank" rel="noopener"><span class="lk-t">Speaker Deck</span><span class="lk-s">登壇スライド</span></a>
+        <a href="https://x.com/usagisan2020" target="_blank" rel="noopener"><span class="lk-t">X (Twitter)</span><span class="lk-s">@usagisan2020</span></a>
+        <a href="https://scholar.google.co.jp/citations?user=eAW7tScAAAAJ" target="_blank" rel="noopener"><span class="lk-t">Google Scholar</span><span class="lk-s">論文・引用</span></a>
+        <a href="https://techbookfest.org/organization/otanet" target="_blank" rel="noopener"><span class="lk-t">技術書典 — うさぎさん商会</span><span class="lk-s">技術同人誌</span></a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact">
+      <img class="usagi-logo" src="usagi-logo.png" alt="うさぎさん商会 ロゴ">
+      <p class="sec-label">Get in touch</p>
+      <h2 class="cta-head">うさぎさん商会へ、お問い合わせ。</h2>
+      <p class="form-intro">
+        技術同人誌・登壇・研究・データ分析に関するご相談やお仕事のご依頼など、
+        お気軽にご連絡ください。ご利用のメールソフト、または Gmail・Outlook・Yahoo! メールから送信できます。
+      </p>
+      <form class="contact" id="contactForm" onsubmit="return sendInquiry('mailto')">
+        <div class="field">
+          <label for="cf-name">お名前</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required placeholder="山田 太郎">
+        </div>
+        <div class="field">
+          <label for="cf-email">メールアドレス</label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div class="field full">
+          <label for="cf-subject">件名</label>
+          <input type="text" id="cf-subject" name="subject" placeholder="お問い合わせの件名">
+        </div>
+        <div class="field full">
+          <label for="cf-message">お問い合わせ内容</label>
+          <textarea id="cf-message" name="message" required placeholder="ご用件をご記入ください。"></textarea>
+        </div>
+        <div class="send-actions">
+          <button type="submit" class="submit">メールを作成して送信</button>
+          <div class="send-alt">
+            <span>Webメールで開く：</span>
+            <button type="button" class="send-link" onclick="sendInquiry('gmail')">Gmail</button>
+            <button type="button" class="send-link" onclick="sendInquiry('outlook')">Outlook</button>
+            <button type="button" class="send-link" onclick="sendInquiry('yahoo')">Yahoo!メール</button>
+          </div>
+        </div>
+        <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="or-sep">または</div>
+
+      <div class="book-box">
+        <div class="book-text">
+          <span class="book-badge">無料 · FREE</span>
+          <h3>30分の 1on1 相談</h3>
+          <p>データ活用・AI・研究・キャリアなど、まずはオンラインで気軽に。所要30分・無料です。</p>
+        </div>
+        <button type="button" class="book-btn" onclick="bookOneOnOne()">1on1を申し込む（無料）</button>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Hiromitsu Ota · 太田 博三 · うさぎさん商会</span>
+      <span><a href="javascript:void(0)" onclick="track('resume_download',{source:'footer'});window.print()">Résumé (PDF) ↓</a></span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  /* filter tabs */
+  (function(){
+    var filters = document.querySelectorAll('.filter');
+    var cards = document.querySelectorAll('#grid .card');
+    filters.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        filters.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        track('work_filter', { filter: f });
+        cards.forEach(function(c){
+          c.style.display = (f === 'all' || c.getAttribute('data-cat') === f) ? '' : 'none';
+        });
+      });
+    });
+  })();
+
+  /* ---- detailed analytics: event helper ---- */
+  function track(name, params){
+    try{
+      var id = window.GA_MEASUREMENT_ID || '';
+      if(typeof window.gtag === 'function' && id && id.indexOf('G-XXXX') !== 0){
+        window.gtag('event', name, params || {});
+      }
+      if(window.console && console.debug){ console.debug('[track]', name, params || {}); }
+    }catch(e){}
+  }
+
+  /* link / work-card / certificate-download / outbound clicks */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if(!a) return;
+    var href = a.getAttribute('href') || '';
+    if(!/^https?:/i.test(href)) return;
+    var titleEl = a.querySelector('.card-title') || a.querySelector('.lk-t');
+    var label = (titleEl ? titleEl.textContent : (a.textContent || '')).replace(/\s+/g,' ').trim().slice(0,90);
+    var kind = a.classList.contains('cert-dl') ? 'certificate_download'
+             : a.classList.contains('cert-link') ? 'course_link'
+             : a.classList.contains('card') ? 'work_click'
+             : 'outbound_click';
+    track(kind, { link_url: href, link_text: label, link_domain: (href.split('/')[2] || '') });
+  }, true);
+
+  /* section views (which parts were seen) */
+  try{
+    var seenSection = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting && en.target.id && !seenSection[en.target.id]){
+          seenSection[en.target.id] = true;
+          track('section_view', { section_id: en.target.id });
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('section[id]').forEach(function(s){ io.observe(s); });
+  }catch(e){}
+
+  /* scroll depth 25/50/75/100 */
+  (function(){
+    var marks = [25,50,75,100], fired = {};
+    window.addEventListener('scroll', function(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      if(max <= 0) return;
+      var pct = (h.scrollTop / max) * 100;
+      marks.forEach(function(m){ if(pct >= m && !fired[m]){ fired[m] = true; track('scroll_depth', { percent: m }); } });
+    }, { passive: true });
+  })();
+
+  /* download / print the course completion certificate (self-contained) */
+  function downloadCertificate(){
+    track('certificate_download', { course: 'Deep Learning基礎講座 2023 (DLB2023)' });
+    var w = window.open('', '_blank');
+    if(!w){ alert('ポップアップがブロックされました。ブラウザのポップアップ許可のうえ再度お試しください。'); return; }
+    var html = ''
+      + '<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">'
+      + '<title>修了証 - Deep Learning基礎講座 2023</title>'
+      + '<style>'
+      + '@page{size:A4 landscape;margin:0;}'
+      + '*{box-sizing:border-box;margin:0;padding:0;}'
+      + 'body{font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;color:#141414;background:#fff;}'
+      + '.sheet{width:297mm;height:210mm;padding:20mm;display:flex;align-items:center;justify-content:center;}'
+      + '.frame{width:100%;height:100%;border:2px solid #1f52c9;border-radius:6px;padding:16mm 20mm;position:relative;display:flex;flex-direction:column;}'
+      + '.frame::after{content:"";position:absolute;inset:5mm;border:1px solid #c9d4f5;border-radius:3px;pointer-events:none;}'
+      + '.eyebrow{letter-spacing:.42em;text-transform:uppercase;font-size:11pt;color:#1f52c9;font-weight:700;}'
+      + '.title{font-family:Georgia,"Times New Roman",serif;font-size:34pt;letter-spacing:.02em;margin:6mm 0 2mm;}'
+      + '.sub{font-size:11pt;color:#555;margin-bottom:10mm;}'
+      + '.awarded{font-size:10.5pt;color:#555;margin-bottom:3mm;}'
+      + '.name{font-family:Georgia,"Times New Roman",serif;font-size:26pt;border-bottom:1.5px solid #141414;display:inline-block;padding:0 8mm 2mm;margin-bottom:9mm;}'
+      + '.course-h{font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:#1f52c9;font-weight:700;margin-bottom:2mm;}'
+      + '.course{font-size:16pt;font-weight:700;margin-bottom:2mm;}'
+      + '.meta{font-size:10pt;color:#555;margin-bottom:7mm;}'
+      + '.learned-h{font-size:8.5pt;letter-spacing:.14em;text-transform:uppercase;color:#141414;font-weight:700;margin-bottom:2mm;}'
+      + '.learned{font-size:9.5pt;color:#333;line-height:1.55;columns:2;column-gap:14mm;max-width:210mm;}'
+      + '.learned li{margin:0 0 1mm;margin-left:5mm;}'
+      + '.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-size:9pt;color:#555;}'
+      + '.seal{width:22mm;height:22mm;border-radius:50%;border:2px solid #1f52c9;color:#1f52c9;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;line-height:1.1;text-align:center;font-size:7.5pt;}'
+      + '.note{font-size:7pt;color:#888;max-width:150mm;line-height:1.4;}'
+      + '</style></head><body onload="window.print()">'
+      + '<div class="sheet"><div class="frame">'
+      + '<div class="eyebrow">Certificate of Completion</div>'
+      + '<div class="title">受講修了記録</div>'
+      + '<div class="sub">This is to certify the completion of the following course.</div>'
+      + '<div class="awarded">This certificate is awarded to</div>'
+      + '<div class="name">太田 博三 &nbsp; Hiromitsu Ota</div>'
+      + '<div class="course-h">Course</div>'
+      + '<div class="course">Deep Learning 基礎講座 2023（DLB2023）</div>'
+      + '<div class="meta">松尾・岩澤研究室（東京大学）公開講座 ／ 日本ディープラーニング協会 E資格認定講座　・　2023年4月〜7月（全13回・オンライン）</div>'
+      + '<div class="learned-h">What was learned</div>'
+      + '<ul class="learned">'
+      + '<li>機械学習・ニューラルネットワークの基礎</li>'
+      + '<li>最適化と正則化</li>'
+      + '<li>CNN（畳み込みニューラルネットワーク）</li>'
+      + '<li>RNN・系列モデル</li>'
+      + '<li>自然言語処理（NLP）</li>'
+      + '<li>コンピュータビジョン</li>'
+      + '<li>生成モデル（VAE・GAN 等）</li>'
+      + '<li>強化学習</li>'
+      + '<li>表現学習・自己教師あり学習</li>'
+      + '<li>深層学習の理論・世界モデル</li>'
+      + '</ul>'
+      + '<div class="foot">'
+      + '<div class="note">本記録は GitHub 上の受講記録（otanet/DLB2023_matsuo-lab_202304-06）にもとづく個人の受講修了記録です。正式な修了証は主催者発行のものをご確認ください。</div>'
+      + '<div class="seal">松尾研<br>公開講座<br>2023</div>'
+      + '</div>'
+      + '</div></div></body></html>';
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+  }
+
+  /* ▼ 予約サービスのURL（Calendly / TimeRex / Spir / Googleの予約ページ等）を入れると、
+     「1on1を申し込む」ボタンはそのページを開きます。空の場合はフォームに申込テンプレを自動入力します。 */
+  window.BOOKING_URL = '';
+
+  /* free 30-min 1on1 booking */
+  function bookOneOnOne(){
+    var url = window.BOOKING_URL || '';
+    track('book_1on1', { has_booking_url: !!url });
+    if(url){ window.open(url, '_blank', 'noopener'); return; }
+    var subj = document.getElementById('cf-subject');
+    var msg = document.getElementById('cf-message');
+    var status = document.getElementById('cf-status');
+    if(subj){ subj.value = '【無料1on1（30分）お申込み】うさぎさん商会'; }
+    if(msg && !msg.value.trim()){
+      msg.value = '無料1on1（30分・オンライン）を申し込みます。\n\n'
+        + 'ご希望の候補日時（第1〜第3希望）:\n1) \n2) \n3) \n\n'
+        + 'ご相談内容:\n';
+    }
+    var form = document.getElementById('contactForm');
+    if(form && form.scrollIntoView){ form.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    var nameEl = document.getElementById('cf-name');
+    if(nameEl){ setTimeout(function(){ nameEl.focus(); }, 350); }
+    if(status){ status.textContent = 'フォームに1on1申込の件名を入力しました。お名前と候補日時をご記入のうえ送信してください。'; }
+  }
+
+  /* mail inquiry — open the chosen mail app / webmail with prefilled fields */
+  function sendInquiry(provider){
+    var name = document.getElementById('cf-name').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var subject = document.getElementById('cf-subject').value.trim();
+    var message = document.getElementById('cf-message').value.trim();
+    var status = document.getElementById('cf-status');
+
+    if(!name || !email || !message){
+      status.textContent = 'お名前・メールアドレス・お問い合わせ内容をご入力ください。';
+      return false;
+    }
+
+    var to = 'otanet123@gmail.com';
+    var mailSubject = subject ? subject : ('【お問い合わせ】うさぎさん商会 - ' + name);
+    var body =
+      'お名前: ' + name + '\n' +
+      'メールアドレス: ' + email + '\n\n' +
+      '--- お問い合わせ内容 ---\n' + message + '\n';
+    var s = encodeURIComponent(mailSubject);
+    var b = encodeURIComponent(body);
+    var t = encodeURIComponent(to);
+
+    var url, external = true;
+    switch(provider){
+      case 'gmail':
+        url = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + t + '&su=' + s + '&body=' + b; break;
+      case 'outlook':
+        url = 'https://outlook.office.com/mail/deeplink/compose?to=' + t + '&subject=' + s + '&body=' + b; break;
+      case 'yahoo':
+        url = 'https://compose.mail.yahoo.com/?to=' + t + '&subject=' + s + '&body=' + b; break;
+      default:
+        url = 'mailto:' + to + '?subject=' + s + '&body=' + b; external = false;
+    }
+
+    track('contact_submit', { provider: provider || 'mailto', has_subject: !!subject });
+    if(external){ window.open(url, '_blank', 'noopener'); }
+    else { window.location.href = url; }
+    status.textContent = 'メールの作成画面を開きました。開かない場合は ' + to + ' まで直接お送りください。';
+    return false;
+  }
+</script>
+
+<!-- ================= PRINT / RÉSUMÉ ================= -->
+<div class="print-only">
+  <div class="cv">
+    <div class="cv-head">
+      <div class="cv-head-text">
+        <h1>Hiromitsu Ota</h1>
+        <p class="ja">太田 博三 — おおた ひろみつ</p>
+        <p class="role">Data Scientist · Researcher — NLP / Generative AI / AGI</p>
+        <div class="contact">
+          <span>Tokyo, Japan</span>
+          <span>otanet123@gmail.com</span>
+          <span>github.com/otanet</span>
+          <span>researchmap.jp/otanet</span>
+          <span>speakerdeck.com/otanet</span>
+          <span>x.com/usagisan2020</span>
+        </div>
+      </div>
+      <img class="cv-photo" src="Hiromitsu_Ota.JPG" alt="太田 博三">
+    </div>
+
+    <h3>Profile</h3>
+    <p>自然言語処理と生成AIを軸に、汎用人工知能（AGI）と人とAIの共生を研究。インターネット業界でのWeb解析・データマーケティングを経て、データアナリスト／データサイエンティストとして分析・モデリングに従事。現在は脳型認知モデルにもとづく解釈可能で信頼できるAIエージェントを探究している。</p>
+
+    <h3>Experience</h3>
+    <div class="xrow"><span class="l">インターネット業界 — Web解析・データマーケティング</span><span class="r">10年</span></div>
+    <div class="xrow"><span class="l">データアナリスト — 分析設計・可視化・意思決定支援</span><span class="r">4年</span></div>
+    <div class="xrow"><span class="l">データサイエンティスト — 機械学習・NLP・モデリング</span><span class="r">6年</span></div>
+    <div class="xrow"><span class="l">共同研究員 — 全脳アーキテクチャ・イニシアティブ（AGI／脳型認知）</span><span class="r">2023 —</span></div>
+
+    <h3>Focus</h3>
+    <p class="kwd">自然言語処理 · 生成AI · AGI · セマンティックWeb／オントロジー · マルチモーダル基盤モデル · 画像生成 (Stable Diffusion) · 脳型認知モデル · マルチエージェント対話 · 人とAIの共生 · データマーケティング</p>
+
+    <h3>Writing &amp; Translation</h3>
+    <ul>
+      <li>脳型認知モデルによる解釈可能で信頼できるエージェント（共著・解説）— 人工知能 Vol.39 No.2</li>
+      <li>『Juliaによるデータサイエンス』— 翻訳</li>
+      <li>ウェブ解析士 認定試験 公式テキスト — 執筆協力</li>
+      <li>技術同人誌「うさぎさん商会」— 技術書典にて頒布</li>
+    </ul>
+
+    <h3>Selected Talks</h3>
+    <ul>
+      <li>FDEという解 — 暗黙知と明示知をつなぐ、伴走型エンジニアリング</li>
+      <li>モーダル間の変換後の一致性とジャンル表を用いた解釈可能性の考察</li>
+      <li>AutoGenによるマルチエージェント対話 / ChatGPTの国際動向と著作権・ガイドライン</li>
+      <li>Fooocus (Stable Diffusion XL) でのアニメ画像生成 ワークショップ</li>
+      <li>人工知能学会 全国大会 OS「統合AIと人間の共生」オーガナイザ（JSAI 2024）</li>
+    </ul>
+
+    <h3>Selected Code</h3>
+    <ul>
+      <li>NLP2022 言語処理学会ポスター発表 / Chatbot × Deep Reinforcement Learning</li>
+      <li>LangChain Summarization / RecSys（推薦エンジン実装デモ）— Python</li>
+    </ul>
+
+    <h3>Education</h3>
+    <div class="xrow"><span class="l">工学修士 ／ 博士課程満期退学修了（Master of Engineering）</span><span class="r">2004</span></div>
+
+    <div class="cv-foot">Single-page profile · index.html — otanet123@gmail.com · x.com/usagisan2020</div>
+  </div>
+</div>
+
+</body>
+</html>
