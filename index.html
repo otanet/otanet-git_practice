@@ -165,6 +165,25 @@
   .card-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;}
   .card-tags span{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 10px;}
 
+  /* ---------- self PR ---------- */
+  .pr-lead{font-size:1.08rem;color:var(--muted);max-width:68ch;margin:0 0 36px;}
+  .pr-lead strong{color:var(--text);font-weight:700;}
+  .pr-points{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:0 0 48px;}
+  @media (max-width:760px){ .pr-points{grid-template-columns:1fr;} }
+  .pr-point{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:24px 26px;}
+  .pr-num{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--accent);margin:0 0 6px;}
+  .pr-point h3{font-size:1.1rem;font-weight:700;margin:0 0 10px;letter-spacing:-0.01em;}
+  .pr-point p:last-child{margin:0;font-size:.93rem;color:var(--muted);}
+  .pr-roles-h{margin:0 0 14px;}
+  .pr-roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;}
+  .pr-role{border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;background:var(--surface);padding:20px 22px;}
+  .pr-role h3{font-size:1rem;font-weight:700;margin:0 0 10px;line-height:1.4;}
+  .pr-role ul{margin:0;padding-left:18px;color:var(--muted);font-size:.88rem;}
+  .pr-role li{margin:0 0 5px;}
+  .pr-close{margin:32px 0 0;font-size:1rem;color:var(--text);}
+  .pr-close a{color:var(--accent);font-weight:700;text-decoration:none;margin-left:8px;}
+  .pr-close a:hover{text-decoration:underline;}
+
   /* ---------- word cloud ---------- */
   .wordcloud{margin:0 0 44px;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:26px 28px 22px;}
   .wordcloud .insights-h{margin:0 0 14px;}
@@ -338,6 +357,7 @@
       <a class="brand" href="#top">Hiromitsu Ota<span class="dot">.</span>／うさぎさん商会</a>
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#pr">PR</a>
         <a href="#work">Work</a>
         <a href="#cert">Certification</a>
         <a href="#contact">Contact</a>
@@ -427,6 +447,88 @@
           <div class="row"><div><div class="role">共同研究 — 全脳アーキテクチャ・イニシアティブ</div><div class="desc">AGI／脳型認知・人とAIの共生</div></div><div class="yr">2023 —</div></div>
         </div>
       </div>
+    </section>
+
+    <!-- ============ SELF PR ============ -->
+    <section id="pr">
+      <div class="sec-head">
+        <div>
+          <p class="sec-label">For Recruiters &amp; Hiring Managers</p>
+          <h2>自己PR</h2>
+        </div>
+        <p class="sec-sub">採用・スカウトご担当の方、現場のマネージャーの方へ。これまでの取り組みと、お任せいただけることをまとめました。</p>
+      </div>
+
+      <p class="pr-lead">
+        <strong>現場の課題をデータと生成AIで「動く仕組み」に変え、経営判断までつなげる</strong>ことが私の強みです。
+        Web解析・データマーケティングの10年、データアナリスト・データサイエンティストとしての分析・モデリング、
+        そして小売りのコンタクトセンターでの3年半を通じて、数字を集める側・使う側・判断する側のすべてに立ってきました。
+        自然言語処理の研究と、松尾研講座での継続的な学び直しで、最新技術を実務に持ち込める状態を保っています。
+      </p>
+
+      <div class="pr-points">
+        <div class="pr-point">
+          <p class="pr-num">01</p>
+          <h3>現場の数字を、経営の意思決定へ</h3>
+          <p>コンタクトセンターで、Excel・Access による集計から、電話・LINE・チャットの問い合わせ件数の予測、役員向けの顧客離反分析の提案書作成までを担当。集計で終わらせず、「次に何をするか」まで提案します。</p>
+        </div>
+        <div class="pr-point">
+          <p class="pr-num">02</p>
+          <h3>生成AIで、業務を実際に軽くする</h3>
+          <p>Copilot の活用や、Access のクエリを Excel Power Query に移す効率化、生成AI・Claude Code による Web アプリ開発を実務で行っています。Dify によるお客様の声の分析など、すぐ使える形に落とし込むのが得意です。</p>
+        </div>
+        <div class="pr-point">
+          <p class="pr-num">03</p>
+          <h3>暗黙知を言葉にして、チームに広げる</h3>
+          <p>現場に入り込み、ベテランの判断基準を手順やプロンプトに言語化する「伴走型エンジニアリング（FDE）」を実践・発表。LT登壇や勉強会、書籍の翻訳・共同執筆、学会のオーガナイザーなど、知識を開いて周りを巻き込む活動を続けています。</p>
+        </div>
+        <div class="pr-point">
+          <p class="pr-num">04</p>
+          <h3>学び続け、最新技術を実務に持ち込む</h3>
+          <p>自然言語処理の研究発表（2017年〜）、LLM・マルチモーダル・AIエージェントの検証に加え、松尾研の GCI（Advanced 修了）・Physical AI 基礎編などを修了し、現在も AX・深層学習・Physical AI の講座を受講中です。</p>
+        </div>
+      </div>
+
+      <p class="insights-h pr-roles-h">お任せいただけそうな役割</p>
+      <div class="pr-roles">
+        <div class="pr-role">
+          <h3>データサイエンティスト／シニアデータアナリスト</h3>
+          <ul>
+            <li>需要・問い合わせ件数の予測と、人員配置など施策への反映</li>
+            <li>顧客離反・セグメント分析と、経営層向けの提案資料づくり</li>
+            <li>Web解析・マーケティング施策の KPI 設計と効果検証</li>
+          </ul>
+        </div>
+        <div class="pr-role">
+          <h3>生成AI活用推進／AX・DX 推進リード</h3>
+          <ul>
+            <li>部門ごとの AI 活用ユースケースの選定と PoC の推進</li>
+            <li>生成AIの利用ガイドライン・セキュリティルールの整備</li>
+            <li>社内勉強会・ハンズオンによる AI リテラシーの底上げ</li>
+          </ul>
+        </div>
+        <div class="pr-role">
+          <h3>FDE／AIソリューションエンジニア</h3>
+          <ul>
+            <li>現場業務のヒアリングと、暗黙知の手順書・プロンプト化</li>
+            <li>Dify・Claude Code などでの業務アプリの素早い試作と改善</li>
+            <li>Excel・Access から Power Query などへの業務移行と効率化</li>
+          </ul>
+        </div>
+        <div class="pr-role">
+          <h3>AI 研究開発（NLP・LLM・エージェント）</h3>
+          <ul>
+            <li>LLM・マルチモーダルモデルの比較検証と評価設計</li>
+            <li>マルチエージェントによる業務シミュレーションの設計</li>
+            <li>技術調査・論文化・社外発信（登壇・執筆）</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="pr-close">
+        スカウト・お仕事のご相談は、お気軽にご連絡ください。
+        <a href="#contact">お問い合わせはこちら ↓</a>
+      </p>
     </section>
 
     <!-- ============ WORK ============ -->
@@ -623,9 +725,9 @@
         <a class="card" data-cat="writing" href="https://researchmap.jp/otanet/books_etc" target="_blank" rel="noopener">
           <div class="thumb t-teal"><span class="t-mark">著</span><span class="t-kicker">Textbook</span><span class="t-title">ウェブ解析士<br>公式テキスト</span></div>
           <div class="card-body">
-            <span class="card-cat">Writing · 執筆協力</span>
+            <span class="card-cat">Writing · 共同執筆</span>
             <h3 class="card-title">ウェブ解析士 認定試験 公式テキスト <span class="arrow">↗</span></h3>
-            <div class="card-tags"><span>Analytics</span><span>執筆協力</span></div>
+            <div class="card-tags"><span>Analytics</span><span>共同執筆</span></div>
           </div>
         </a>
 
@@ -1291,7 +1393,7 @@
     <ul>
       <li>脳型認知モデルによる解釈可能で信頼できるエージェント（共著・解説）— 人工知能 Vol.39 No.2</li>
       <li>『Juliaによるデータサイエンス』— 翻訳</li>
-      <li>ウェブ解析士 認定試験 公式テキスト — 執筆協力</li>
+      <li>ウェブ解析士 認定試験 公式テキスト — 共同執筆</li>
       <li>技術同人誌「うさぎさん商会」— 技術書典にて頒布</li>
     </ul>
 
