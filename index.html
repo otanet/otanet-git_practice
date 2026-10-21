@@ -165,6 +165,20 @@
   .card-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;}
   .card-tags span{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 10px;}
 
+  /* ---------- word cloud ---------- */
+  .wordcloud{margin:0 0 44px;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:26px 28px 22px;}
+  .wordcloud .insights-h{margin:0 0 14px;}
+  .wc-cloud{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 18px;line-height:1.25;}
+  .wc-w{display:inline-block;font-weight:600;color:var(--muted);letter-spacing:-0.01em;border-radius:6px;padding:2px 4px;transition:color .2s,background .2s;cursor:default;}
+  .wc-w:hover{color:var(--accent);}
+  .wc-1{font-size:.86rem;font-weight:500;}
+  .wc-2{font-size:1.08rem;}
+  .wc-3{font-size:1.4rem;color:var(--text);}
+  .wc-4{font-size:1.85rem;font-weight:700;color:var(--text);}
+  .wc-5{font-size:2.5rem;font-weight:800;color:var(--text);}
+  .wc-note{margin:16px 0 0;text-align:center;font-size:.8rem;color:var(--muted);}
+  @media (max-width:560px){ .wordcloud{padding:22px 16px 18px;} .wc-cloud{gap:4px 12px;} .wc-5{font-size:1.9rem;} .wc-4{font-size:1.45rem;} .wc-3{font-size:1.15rem;} }
+
   /* ---------- work insights ---------- */
   .insights{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin:0 0 44px;}
   .insights-h{grid-column:1/-1;font-size:.78rem;letter-spacing:.18em;color:var(--muted);font-weight:700;margin:0 0 -2px;}
@@ -408,6 +422,55 @@
         </div>
         <p class="sec-sub">研究・登壇・執筆・実装。テーマで絞り込めます。</p>
       </div>
+
+      <figure class="wordcloud" aria-label="公開資料のキーワード（大きいほど多くの資料で扱ったテーマ）">
+        <figcaption class="insights-h">キーワードで見る公開資料</figcaption>
+        <div class="wc-cloud">
+          <span class="wc-w wc-1">コンタクトセンター</span>
+          <span class="wc-w wc-1">技術同人誌</span>
+          <span class="wc-w wc-1">Julia</span>
+          <span class="wc-w wc-1">脳型認知モデル</span>
+          <span class="wc-w wc-1">ノーコード</span>
+          <span class="wc-w wc-1">認知バイアス</span>
+          <span class="wc-w wc-1">GPT-4V</span>
+          <span class="wc-w wc-2">AGI</span>
+          <span class="wc-w wc-2">強化学習</span>
+          <span class="wc-w wc-2">主観・客観</span>
+          <span class="wc-w wc-2">オントロジー</span>
+          <span class="wc-w wc-2">マルチエージェント</span>
+          <span class="wc-w wc-2">LangChain</span>
+          <span class="wc-w wc-2">暗黙知・明示知</span>
+          <span class="wc-w wc-3">ナレッジマネジメント</span>
+          <span class="wc-w wc-3">自動要約</span>
+          <span class="wc-w wc-3">解釈可能性</span>
+          <span class="wc-w wc-3">プロンプト設計</span>
+          <span class="wc-w wc-4">画像生成</span>
+          <span class="wc-w wc-4">自然言語処理</span>
+          <span class="wc-w wc-4">LLM</span>
+          <span class="wc-w wc-5">生成AI</span>
+          <span class="wc-w wc-4">ChatGPT</span>
+          <span class="wc-w wc-4">マルチモーダル</span>
+          <span class="wc-w wc-3">文章生成</span>
+          <span class="wc-w wc-3">AIエージェント</span>
+          <span class="wc-w wc-3">Python</span>
+          <span class="wc-w wc-3">対話</span>
+          <span class="wc-w wc-2">FDE</span>
+          <span class="wc-w wc-2">SECIモデル</span>
+          <span class="wc-w wc-2">AutoGen</span>
+          <span class="wc-w wc-2">Stable Diffusion</span>
+          <span class="wc-w wc-2">認知言語学</span>
+          <span class="wc-w wc-2">シミュレーション</span>
+          <span class="wc-w wc-2">LLM評価</span>
+          <span class="wc-w wc-2">推薦システム</span>
+          <span class="wc-w wc-1">Dify</span>
+          <span class="wc-w wc-1">著作権・ガイドライン</span>
+          <span class="wc-w wc-1">Text-to-Music</span>
+          <span class="wc-w wc-1">人とAIの共生</span>
+          <span class="wc-w wc-1">Web解析</span>
+          <span class="wc-w wc-1">ポスター発表</span>
+        </div>
+        <p class="wc-note">文字が大きいほど、多くのスライド・動画・執筆で扱ったテーマです。</p>
+      </figure>
 
       <div class="insights">
         <p class="insights-h">スライド・動画から振り返る、取り組みとできること</p>
