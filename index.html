@@ -218,6 +218,21 @@
   .wc-note{margin:16px 0 0;text-align:center;font-size:.8rem;color:var(--muted);}
   @media (max-width:560px){ .wordcloud{padding:22px 16px 18px;} .wc-cloud{gap:4px 12px;} .wc-5{font-size:1.9rem;} .wc-4{font-size:1.45rem;} .wc-3{font-size:1.15rem;} }
 
+  /* ---------- events ---------- */
+  .events{margin-top:56px;}
+  .events .insights-h{margin:0 0 14px;}
+  .ev-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+  .ev{display:grid;grid-template-columns:110px 1fr;gap:6px 24px;padding:18px 4px;border-bottom:1px solid var(--line);}
+  @media (max-width:560px){ .ev{grid-template-columns:1fr;} }
+  .ev-date{font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;font-size:.92rem;padding-top:2px;}
+  .ev-title{margin:0 0 4px;font-weight:700;font-size:1rem;line-height:1.5;}
+  .ev-kind{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 10px;margin-right:10px;vertical-align:2px;}
+  .ev-award .ev-kind{color:#3a2a05;border-color:#e0ad3a;background:linear-gradient(140deg,#ffe7a3,#e8b84a);}
+  .ev-desc{margin:0 0 6px;font-size:.9rem;color:var(--muted);}
+  .ev-links{margin:0;display:flex;flex-wrap:wrap;gap:4px 16px;}
+  .ev-links a{font-size:.84rem;font-weight:600;color:var(--accent);text-decoration:none;}
+  .ev-links a:hover{text-decoration:underline;}
+
   /* ---------- books ---------- */
   .books{margin-top:56px;display:flex;flex-direction:column;gap:14px;}
   .books .insights-h{margin:0 0 2px;}
@@ -834,6 +849,44 @@
           </div>
         </a>
 
+      </div>
+
+      <div class="events">
+        <p class="insights-h">ハッカソン・勉強会・登壇</p>
+        <ol class="ev-list">
+        <li class="ev">
+          <span class="ev-date">2026.10.16</span>
+          <div class="ev-main">
+            <p class="ev-title"><span class="ev-kind">参加</span>Interface 2026年11月号「AIエージェント実装術」オフ会＠東京</p>
+            <p class="ev-desc">CQ出版社 インターフェース編集部主催。記事執筆者によるミニプレゼンと交流会に参加。</p>
+            <p class="ev-links"><a href="https://inteface-meet-up.connpass.com/event/406328/" target="_blank" rel="noopener">connpass ↗</a></p>
+          </div>
+        </li>
+        <li class="ev ev-award">
+          <span class="ev-date">2026.10.12</span>
+          <div class="ev-main">
+            <p class="ev-title"><span class="ev-kind">優秀賞</span>積水ハウス イノベーション＆コミュニケーション AIハッカソン 2026</p>
+            <p class="ev-desc">「事業・業務のAI課題にチームで挑戦」をテーマにしたハッカソンで優秀賞を受賞。</p>
+            <p class="ev-links"><a href="https://peatix.com/event/5163532" target="_blank" rel="noopener">Peatix ↗</a></p>
+          </div>
+        </li>
+        <li class="ev">
+          <span class="ev-date">2026.09.15</span>
+          <div class="ev-main">
+            <p class="ev-title"><span class="ev-kind">LT登壇</span>データ界隈LT祭【第1回】～熱量や面白さを3分間に凝縮するLT祭～</p>
+            <p class="ev-desc">「〜しておいて」の五つの穴 ～ナレッジマネジメントとしての明示知と暗黙知の活かし方～ を発表（ハイブリッド開催・大崎）。</p>
+            <p class="ev-links"><a href="https://datayokocho.connpass.com/event/393250/" target="_blank" rel="noopener">connpass ↗</a><a href="https://ltfes.datayokocho.info/event/vol1/" target="_blank" rel="noopener">イベントページ ↗</a><a href="https://ltfes.datayokocho.info/todanvol1_ohtahiromitsu/" target="_blank" rel="noopener">登壇者ページ ↗</a><a href="https://www.youtube.com/watch?v=cJeH3jE3Wno" target="_blank" rel="noopener">配信動画 ↗</a><a href="https://speakerdeck.com/otanet/shi-te-oi-te-no-itsutsu-no-ana-toshiteno-meiji-chi-to-anmoku-chi-no-ikashikata" target="_blank" rel="noopener">スライド ↗</a></p>
+          </div>
+        </li>
+        <li class="ev">
+          <span class="ev-date">2026.01.14</span>
+          <div class="ev-main">
+            <p class="ev-title"><span class="ev-kind">LT登壇</span>データ横丁・新年 LT大会 2026 ～テーマは自由！</p>
+            <p class="ev-desc">『雪国』の冒頭を題材に、画像生成でみる日本と海外の「主観／客観」の違いを発表。</p>
+            <p class="ev-links"><a href="https://datayokocho.connpass.com/event/377440/" target="_blank" rel="noopener">connpass ↗</a><a href="https://speakerdeck.com/otanet/detaheng-ding-xin-nian-lt20260114" target="_blank" rel="noopener">スライド ↗</a></p>
+          </div>
+        </li>
+        </ol>
       </div>
 
       <div class="books">
